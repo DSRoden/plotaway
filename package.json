@@ -1,17 +1,17 @@
 {
-  "name": "mean-template",
+  "name": "plotaway",
   "version": "0.0.0",
-  "description": "The MEAN Template",
+  "description": "plot trips, projects, goals",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nss-cohort-2014-06-07/mean-template"
+    "url": "https://github.com/dsroden/plotaway"
   },
-  "author": "Chyld Medford <chyld.medford@gmail.com>",
+  "author": "DSRoden <daniel.s.roden@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nss-cohort-2014-06-07/mean-template/issues"
+    "url": "https://github.com/dsroden/plotaway/issues"
   },
-  "homepage": "https://github.com/nss-cohort-2014-06-07/mean-template",
+  "homepage": "https://github.com/dsroden/plotaway",
   "dependencies": {
     "async": "^0.9.0",
     "bcrypt": "^0.8.0",
