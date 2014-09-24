@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('mean-template')
+  angular.module('plotaway')
   .factory('Home', ['$http', function($http){
 
     function getMessage(){

@@ -1,0 +1,43 @@
+div
+    form.form-horizontal(name='_form', ng-submit='submit(_form)')
+        .modal-header
+          button.close(type='button', ng-click='dismiss()', aria-hidden='true') ×
+          h3 Widget Settings
+        .modal-body
+          .form-group(ng-class='{error: _form.name.$error && _form.submitted}')
+            label.control-label.col-lg-3.col-md-3 Name
+            .col-lg-9.col-md-9
+              input.form-control(name='name', type='text', ng-model='form.name')
+          .row
+            .col-lg-6.col-md-6
+              .form-group(ng-class='{error: _form.sizeX.$error && _form.submitted}')
+                label.control-label.col-lg-6.col-md-6 Width
+                .col-lg-6.col-md-6
+                  input.form-control(name='sizeX', ng-model='form.sizeX')
+            .col-lg-6.col-md-6
+              .form-group
+                label.control-label.col-lg-6.col-md-6 Height
+                .col-lg-6.col-md-6
+                  input.form-control(name='sizeY', ng-model='form.sizeY')
+          .row
+            .col-lg-6.col-md-6
+              .form-group(ng-class='{error: _form.sizeX.$error && _form.submitted}')
+                label.control-label.col-lg-6.col-md-6 Column
+                .col-lg-6.col-md-6
+                  input.form-control(name='col', ng-model='form.col')
+            .col-lg-6.col-md-6
+              .form-group
+                label.control-label.col-lg-6.col-md-6 Row
+                .col-lg-6.col-md-6
+                  input.form-control(name='row', ng-model='form.row')
+        .modal-footer
+          a.btn.btn-danger.pull-left(ng-click='remove()', tabindex='-1')
+            i.glyphicon.glyphicon-trash
+            | Delete
+          a.btn.btn-default(ng-click='dismiss()', tabindex='-1')
+            i.glyphicon.glyphicon-remove
+            | Cancel
+          button.btn.btn-primary.btn-lg(type='submit')
+            i.glyphicon.glyphicon-ok
+            | Save
+
