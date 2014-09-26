@@ -1,0 +1,93 @@
+#selectBoard
+  .btn-toolbar
+    .btn-group
+        button.btn.btn.new-board(ng-click='newBoard()')
+          i.glyphicon.glyphicon-plus
+          | New Board
+    .btn-group(dropdown='dropdown', is-open='status.isopen')
+          button.btn.all-boards.dropdown-toggle(type='button', ng-disabled='disabled')
+            | Existing Boards &nbsp
+            span.caret
+          ul.dropdown-menu
+            li(ng-repeat='b in boards')
+              .btn.menu-items(ng-click='setCurrentBoard(b)') {{b.title}}
+
+#body
+  #currentBoard
+    a.btn.board-title(ng-click='boardSettings(currentBoard)')
+      | {{currentBoard.title.charAt(0).toUpperCase() + currentBoard.title.slice(1);}} &nbsp
+      i.glyphicon.glyphicon-cog
+   .btn-toolbar
+     .btn-group
+        button.btn.btn.new-page(ng-click='initPage()')
+          i.glyphicon.glyphicon-plus
+          | New Page
+     .btn-group(dropdown='dropdown', is-open='status.isopen')
+        button.btn.all-pages.dropdown-toggle(type='button', ng-disabled='disabled')
+          | Existing Pages &nbsp
+          span.caret
+        ul.dropdown-menu
+          li(ng-repeat='page in pages')
+            a(href='#') {{page.title}}
+       .btn-group
+          button.btn.btn.new-plot(ng-click='addWidget()')
+            i.glyphicon.glyphicon-th
+            | Add Plot
+       .btn-group
+          button.btn.btn.save-page(ng-click='savePage(page)')
+            i.glyphicon.glyphicon-saved
+            | Save Page
+       .btn-group
+          button.btn.btn.delete-page(ng-click='deletePage(page)')
+            i.glyphicon.glyphicon-remove
+            | Delete Page
+
+  #initPage(ng-show='newPage')
+    #newPage
+      form(role='form', name='pageForm')
+        .form-group
+          input.form-control#title(type='text', name='title', ng-model='page.title', autofocus, required, placeholder='Title (required)')
+        .btn-group
+          button.btn.btn-calendar(ng-click='displayCalendar()')
+            i.glyphicon.glyphicon-calendar
+            | Date (optional)
+        #calendar(ng-show='addDate', style='display: inline-block; min-height: 200px; vertical-align: center;')
+          datepicker.well.well-sm(ng-model='dt', min-date='minDate', show-weeks='true')
+       .btn-group
+          button.btn.btn-save-page(ng-click='createPage()')
+            i.glyphicon.glyphicon-ok
+            | Create New Page
+
+  #currentPage
+
+
+
+
+
+  #plots
+    div(gridster='gridsterOptions')
+      ul
+        li(gridster-item='widget', ng-repeat='widget in dashboard.widgets')
+          .box.widget-image(ng-controller='CustomWidgetCtrl', ng-class='{flipped: widget.flipped}')
+            .box-header
+              h3 {{ widget.name }}
+              .box-header-btns.pull-right
+                a(title='settings', ng-click='flipWidget(widget)')
+                  i.glyphicon.glyphicon-cog
+                a(title='settings', ng-click='openSettings(widget)')
+                  i.glyphicon.glyphicon-cog
+                a(title='Remove widget', ng-click='remove(widget)')
+                  i.glyphicon.glyphicon-trash
+            //-.box-content
+
+
+
+
+//toggle
+//-.btn-group
+      //-label.btn.btn-success(ng-model='radioModel', btn-radio='\'Left\'', uncheckable='uncheckable') Left
+      //-label.btn.btn-success(ng-model='radioModel', btn-radio='\'Right\'', uncheckable='uncheckable') Right
+
+
+
+

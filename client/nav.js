@@ -7,6 +7,7 @@
       $scope.email = email;
     });
 
+
     $scope.$on('authenticated', function(event, email){
       if(email === 'anonymous'){email = null;}
 

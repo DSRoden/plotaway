@@ -5,15 +5,20 @@
       a.pull-right.btn.btn-warning(ng-click='clear()')
         i.glyphicon.glyphicon-trash
         | Clear
+      a.pull-right.btn.btn-warning(ng-click='savePlots()')
+        i.glyphicon.glyphicon-trash
+        | Save All
       h1(style='display: inline-block; width: 200px;') Dashboard
       select.form-control(style='width: 150px; margin-bottom: 20px; display: inline-block;', ng-change='changeDashboard()', ng-model='selectedDashboardId', ng-options='d.id as d.name for d in dashboards | object2Array | orderBy:\'id\'')
     div(gridster='gridsterOptions')
       ul
         li(gridster-item='widget', ng-repeat='widget in dashboard.widgets')
-          .box.widget-image(ng-controller='CustomWidgetCtrl')
+          .box.widget-image(ng-controller='CustomWidgetCtrl', ng-class='{flipped: widget.flipped}')
             .box-header
               h3 {{ widget.name }}
               .box-header-btns.pull-right
+                a(title='settings', ng-click='flipWidget(widget)')
+                  i.glyphicon.glyphicon-cog
                 a(title='settings', ng-click='openSettings(widget)')
                   i.glyphicon.glyphicon-cog
                 a(title='Remove widget', ng-click='remove(widget)')

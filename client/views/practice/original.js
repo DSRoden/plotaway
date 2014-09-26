@@ -1,8 +1,46 @@
 /*jshint -W089 */
+/*jshint -W083 */
 'use strict';
 
 angular.module('plotaway')
-.controller('DashboardCtrl', ['$scope', '$timeout', 'Plot', function($scope, $timeout, Plot){
+.controller('StoriesCtrl', ['$scope', '$timeout', '$upload', function($scope, $timeout, $upload){
+      $scope.boards= [{title: 'bob', age: '2'}, {title: 'sally', age: '3'}, {title: 'harry', age:'4'}];
+      $scope.board= $scope.boards[0];
+
+     // images?
+
+     $scope.onFileSelect = function($files){
+    //$files: an array of files selected, each file has name, size, and type.
+    for (var i = 0; i < $files.length; i++){
+      var file = $files[i];
+      $scope.upload = $upload.upload({
+        url: 'server/upload/url', //upload.php script, node.js route, or servlet url
+        //method: 'POST' or 'PUT',
+        //headers: {'header-key': 'header-value'},
+        //withCredentials: true,
+        data: {myObj: $scope.myModelObj},
+        file: file // or list of files ($files) for html5 only
+        //fileName: 'doc.jpg' or ['1.jpg', '2.jpg', ...] // to modify the name of the file(s)
+        // customize file formData name ('Content-Disposition'), server side file variable name.
+        //fileFormDataName: myFile, //or a list of names for multiple files (html5). Default is 'file'
+        // customize how data is added to formData. See #40#issuecomment-28612000 for sample code
+        //formDataAppender: function(formData, key, val){}
+      }).progress(function(evt){
+        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+      }).success(function(data, status, headers, config){
+        // file is uploaded successfully
+        console.log(data);
+      });
+      //.error(...)
+      //.then(success, error, progress);
+      // access or attach event listeners to the underlying XMLHttpRequest.
+      //.xhr(function(xhr){xhr.upload.addEventListener(...)})
+    }
+    /* alternative way of uploading, send the file binary with the file's content-type.
+       Could be used to upload files to CouchDB, imgur, etc... html5 FileReader is needed.
+       It could also be used to monitor the progress of a normal http post/put request with large data*/
+    // $scope.upload = $upload.http({...})  see 88#issuecomment-31366487 for sample code.
+  };
 
      // flip widget on click
 
@@ -16,15 +54,10 @@ angular.module('plotaway')
 
     // save plots from dashboard
 
-    $scope.savePlots = function(){
-      Plot.save($scope.dashboards).then(function(response){
-        $scope.dashboards = response.data.dashboards;
-      });
-    };
 
     $scope.gridsterOptions = {
       margins: [2, 2],
-      columns: 4,
+      columns: 12,
       mobileBreakPoint: 600,
       draggable: {
         handle: 'h3'
@@ -63,7 +96,7 @@ angular.module('plotaway')
           flipped: false
         }, {
           col: 1,
-          row: 3,
+          row: 5,
           sizeY: 1,
           sizeX: 1,
           name: 'Other Widget 2',
@@ -108,7 +141,7 @@ angular.module('plotaway')
     $scope.openSettings = function(widget){
       $modal.open({
         scope: $scope,
-        templateUrl: '/views/dashboard/widget_settings.html',
+        templateUrl: '/views/stories/plot_settings.html',
         controller: 'WidgetSettingsCtrl',
         resolve: {
         widget: function(){
@@ -144,6 +177,9 @@ angular.module('plotaway')
       name: '3'
     }, {
       id: '4',
+      name: '4'
+    }, {
+      id: '5',
       name: '4'
     }];
 
