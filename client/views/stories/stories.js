@@ -7,7 +7,7 @@
       $scope.boards= [];
       $scope.board= {};
       $scope.currentBoard= {};
-      $scope.dt = new Date();
+      $scope.dt = new Date('12-1-2012');
       $scope.page = {};
       $scope.pages = [];
       $scope.newPage = false;
@@ -29,6 +29,7 @@
       $scope.boardRemains = function(){
         Board.maintain($routeParams.boardId).then(function(response){
           $scope.currentBoard = response.data.board;
+          console.log(response);
         });
       };
 
@@ -48,6 +49,7 @@
         Page.all($scope.currentBoard).then(function(response){
           console.log(response);
           $scope.pages = response.data.pages;
+        $location.path('/stories/' + $scope.currentBoar._id);
         });
       };
 

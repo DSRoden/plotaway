@@ -6,7 +6,7 @@
           | New Board
     .btn-group(dropdown='dropdown', is-open='status.isopen')
           button.btn.all-boards.dropdown-toggle(type='button', ng-disabled='disabled')
-            | Existing Boards &nbsp
+            | {{currentBoard.title}} &nbsp
             span.caret
           ul.dropdown-menu
             li(ng-repeat='b in boards')
@@ -24,7 +24,7 @@
           | New Page
      .btn-group(dropdown='dropdown', is-open='status.isopen')
         button.btn.all-pages.dropdown-toggle(type='button', ng-disabled='disabled')
-          | Existing Pages &nbsp
+          | {{page.title}} &nbsp
           span.caret
         ul.dropdown-menu
           li(ng-repeat='page in pages')

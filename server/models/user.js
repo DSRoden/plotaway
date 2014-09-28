@@ -19,7 +19,12 @@ User.register = function(o, cb){
   User.collection.findOne({email:o.email}, function(err, user){
     if(user || o.password.length < 3){return cb();}
     o.password = bcrypt.hashSync(o.password, 10);
-    User.collection.save(o, cb);
+    User.collection.save(o, function(err, user){
+      var o = {title: 'First Trip!', isSet: true};
+      require('./trip').create(user, o, function(){
+        cb(err, user);
+      });
+    });
   });
 };
 

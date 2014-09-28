@@ -1,0 +1,30 @@
+.row
+  .col-xs-12
+    .btn-toolbar
+      .btn-group
+          button.new-trip(ng-click='newTrip()')
+            i.glyphicon.glyphicon-plus
+            | New Trip
+      .btn-group(dropdown='dropdown', is-open='status.isopen')
+          button.btn.my-trips.dropdown-toggle(type='button', ng-disabled='disabled')
+            | My Trips &nbsp
+            span.caret
+          ul.dropdown-menu.trip-menu
+            li(ng-repeat='trip in trips')
+              .btn.trip-items(ng-click='setTrip(trip)') {{trip.title}}
+.row
+  .col-xs-12
+    .btn-toolbar
+      .btn-group
+        button.current-trip(ng-click='tripSettings()')
+          span(typewrite='', blink-cursor='false', text='{{currentTrip.title.charAt(0).toUpperCase() + currentTrip.title.slice(1);}}', initial-delay='0.5s', type-delay='50')
+          span &nbsp
+          span.glyphicon.glyphicon-cog
+      .btn-group
+        button.btn.tools.dropdown-toggle(type='button', ng-disabled='disabled')
+          | Tools &nbsp
+          span.caret
+        ul.dropdown-menu.tool-menu
+          li(ng-repeat='tool in tools')
+            .btn.tool-items(ng-click='fetchTool(tool)') {{tool}}
+h4 {{currentTrip.title}}

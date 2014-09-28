@@ -24,8 +24,9 @@ angular.module('plotaway')
 
     $scope.gridsterOptions = {
       margins: [2, 2],
-      columns: 4,
-      mobileBreakPoint: 600,
+      columns: 8,
+      mobileBreakPoint: 480,
+      isMobile: true,
       draggable: {
         handle: 'h3'
       }
@@ -79,8 +80,8 @@ angular.module('plotaway')
     $scope.addWidget = function(){
       $scope.dashboard.widgets.push({
         name: 'New Widget',
-        sizeX: 1,
-        sizeY: 1,
+        sizeX: 3,
+        sizeY: 3,
         flipped: false
       });
     };

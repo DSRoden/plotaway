@@ -10,6 +10,7 @@ var morgan         = require('morgan'),
     home           = require('../controllers/home'),
     boards          = require('../controllers/boards'),
     pages          = require('../controllers/pages'),
+    trips          = require('../controllers/trips'),
     users          = require('../controllers/users');
 
 module.exports = function(app, express){
@@ -34,6 +35,11 @@ module.exports = function(app, express){
   app.post('/board', boards.findBoard);
   app.post('/newpage', pages.create);
   app.post('/pages', pages.all);
+
+  app.post('/newtrip', trips.create);
+  app.get('/trips', trips.index);
+  app.post('/settrip', trips.set);
+  app.get('/lasttrip', trips.last);
 
   console.log('Express: Routes Loaded');
 };

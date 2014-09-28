@@ -1,0 +1,156 @@
+@straw : #E4D96F;
+@lemonCurry: #CCA01D;
+@gray : #EFEEE8;
+@pastelRed : #FF6961;
+@redOrange : #FF5439;
+@titaniumYellow : #EEE600;
+@bitterLemon : #CAE00D;
+@goldenYellow : #FFDF00;
+@sandstormYellow : #ECD540;
+@schoolbusYellow : #FFD800;
+@pear : #D1E231;
+@napierGreen : #2A8000;
+@goGreen : #00AB66;
+@avocado : #568203;
+@darkMossGreen: #4A5D23;
+@peachyKeen : #FF6130;
+@flame : #E25822;
+@seaBlue : #006994;
+@electricBlue : #035096;
+@SILVER:  #DDDDDD;
+@BLACK:   #111111;
+@pastelBlue: #AEC6CF;
+@darkElectricBlue: #536878;
+@spanishGray: #3B3C36;
+
+// for phone screen
+
+@media screen and (min-width: 400px) {
+
+  // new trip
+
+  .new-trip {
+    border-radius: 0px;
+    background-color: @straw;
+    width: 90px;
+    height: 60px;
+    border: 0px;
+    color: @spanishGray;
+  }
+
+  .new-trip:hover {
+    background-color: @lemonCurry;
+  }
+
+  .new-trip:focus {
+    outline: 0px;
+    border: 1px solid @lemonCurry;
+  }
+
+  // my trips
+
+  .my-trips {
+    border-radius: 0px;
+    width: 275px;
+    height: 60px;
+    background-color: #F28500;
+    border: 0px;
+    color: @spanishGray;
+  }
+
+  .my-trips:hover {
+    background-color: #CC5500;
+  }
+
+  .my-trips:focus {
+    border: 1px solid #CC5500;
+  }
+
+// current trip
+
+  .current-trip {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: @pastelBlue;
+    border-radius: 0px;
+    border: none;
+    height: 40px;
+    width: 275px;
+    color: @spanishGray;
+  }
+
+  .current-trip:hover {
+    background-color: @darkElectricBlue;
+  }
+
+  .current-trip:focus {
+    outline: 0px;
+    border: 1px solid @darkElectricBlue;
+  }
+
+  // tools
+
+  .tools {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: @avocado;
+    border-radius: 0px;
+    height: 40px;
+    width: 90px;
+    color: @spanishGray;
+  }
+
+  .tools:hover {
+    background-color: @darkMossGreen;
+  }
+
+  .tools:focus {
+    border: 1px solid @darkMossGreen;;
+  }
+
+
+  //dropdown trip menu
+
+  .dropdown-menu {
+    min-width: 80px;
+  }
+
+  .trip-menu {
+      border-radius: 0px;
+      width: 275px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .trip-items {
+    color: @spanishGray;
+    width: 275px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .trip-items:hover {
+    background-color: #ccc;
+  }
+
+  //drop down tool menu
+
+  .dropdown-menu.tool-menu {
+      border-radius: 0px;
+      width: 90px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .tool-items {
+    color: @BLACK;
+    width: 90px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .tool-items:hover {
+    background-color: #ccc;
+  }
+}
+
