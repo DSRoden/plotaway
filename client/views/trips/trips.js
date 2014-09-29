@@ -2,24 +2,70 @@
   'use strict';
 
   angular.module('plotaway')
-  .controller('TripsCtrl', ['$scope', 'Trip','$modal', '$location', '$interval', '$route', '$routeParams', function($scope, Trip, $modal, $location, $interval, $route, $routeParams){
-    $scope.trip = {};
-    $scope.trip.title = 'Trip Title';
+  .controller('TripsCtrl', ['$scope', 'Trip', 'Page', '$modal', '$location', '$rootScope', '$interval', '$route', '$routeParams',
+    function($scope, Trip, Page, $modal, $location, $rootScope, $interval, $route, $routeParams){
+    $scope.trip  = {};
     $scope.trips = [];
     $scope.tools = ['1', '2', '3'];
-    $scope.newTrip = {};
+    $scope.pages = [];
+    $scope.page  = {};
 
-    //initialize page with most recent trip
+    //initiate a modal form for creating a new page
+    $scope.newPage = function(){
+     var newPageModal = $modal.open({
+        templateUrl: '/views/new_pages/new_pages.html',
+        controller: 'NewPagesCtrl',
+        resolve: {
+          newPage : function(){
+            return $scope.newPage;
+          }
+        }
+      });
+
+     // set the results of the modal form
+     // to lastTripAdded and push it into trips array
+     newPageModal.result.then(function(page){
+       $scope.lastPageAdded = page;
+       $scope.pages.push($scope.lastPageAdded);
+     });
+    };
+
+    // set and display page to page that user selects from Pages
+    $scope.setPage = function(page){
+      $scope.page = page;
+      Page.set($scope.page._id).then(function(response){
+        $scope.page = response.data.page;
+      });
+    };
+
+    //initialize page with most recent trip,
+    //make sure if this is the first trip to set
+    //the 'registration' trip as current trip
+    //also bring back all pages associated with said trip
+
+    if($scope.trips.length === 1){
+    $scope.trip = $scope.trips[0];
+    }
 
     Trip.getLast().then(function(response){
-      $scope.currentTrip = response.data.trip;
+      $scope.trip = response.data.trip;
+      $scope.pages = response.data.pages;
+
+      for(var i = 0; i < $scope.pages.length; i++){
+        if($scope.pages[i].isSet === true){
+          $scope.page = $scope.pages[i];
+        }
+      }
+        //var transmit = $scope.trip;
+        //$rootScope.$broadcast('transmitTrip', transmit);
+        //console.log('broadcasting', transmit);
     });
 
-    //set currentTrip to trip that user selects from 'My Trips'
+    //set and display trip to trip that user selects from 'My Trips'
     $scope.setTrip = function(trip){
-      $scope.currentTrip = trip;
-      Trip.set($scope.currentTrip._id).then(function(response){
-        $scope.currentTrip = response.data.trip;
+      $scope.trip = trip;
+      Trip.set($scope.trip._id).then(function(response){
+        $scope.trip = response.data.trip;
         $route.reload('/trips');
       });
     };
@@ -44,11 +90,10 @@
      // set the results of the modal form
      // to lastTripAdded and push it into trips array
      newTripModal.result.then(function(trip){
-      $scope.lastTripAdded = trip;
-      $scope.trips.push($scope.lastTripAdded);
+       $scope.lastTripAdded = trip;
+       $scope.trips.push($scope.lastTripAdded);
      });
     };
-
 
   }]);
 })();

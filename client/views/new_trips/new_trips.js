@@ -19,8 +19,8 @@
         Trip.create($scope.form).then(function(response){
           $scope.trip = response.data.trip;
           $modalInstance.close($scope.trip);
+          toastr.success('Cheers for travel! New trip created.');
         });
-          toastr.success('New Trip Added!');
       };
     }
   ]);

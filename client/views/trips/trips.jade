@@ -1,30 +1,67 @@
 .row
-  .col-xs-12
+  .col-xs-12.col-md-12
     .btn-toolbar
       .btn-group
-          button.new-trip(ng-click='newTrip()')
-            i.glyphicon.glyphicon-plus
-            | New Trip
+        button.new-trip(ng-click='newTrip()')
+          i.glyphicon.glyphicon-plus
+          | Trip
       .btn-group(dropdown='dropdown', is-open='status.isopen')
-          button.btn.my-trips.dropdown-toggle(type='button', ng-disabled='disabled')
-            | My Trips &nbsp
-            span.caret
-          ul.dropdown-menu.trip-menu
-            li(ng-repeat='trip in trips')
-              .btn.trip-items(ng-click='setTrip(trip)') {{trip.title}}
-.row
-  .col-xs-12
-    .btn-toolbar
+        button.btn.my-trips.dropdown-toggle(type='button', ng-disabled='disabled')
+          | My Trips &nbsp
+          span.caret
+        ul.dropdown-menu.trip-menu
+          li(ng-repeat='trip in trips')
+            .btn.trip-items(ng-click='setTrip(trip)') {{trip.title}}
+            //next section: trip settings and tools
       .btn-group
         button.current-trip(ng-click='tripSettings()')
-          span(typewrite='', blink-cursor='false', text='{{currentTrip.title.charAt(0).toUpperCase() + currentTrip.title.slice(1);}}', initial-delay='0.5s', type-delay='50')
+          span(typewrite='typewrite', blink-cursor='false', text=' Current Trip: {{trip.title.charAt(0).toUpperCase() + trip.title.slice(1)}}', initial-delay='1s', type-delay='50')
           span &nbsp
           span.glyphicon.glyphicon-cog
       .btn-group
         button.btn.tools.dropdown-toggle(type='button', ng-disabled='disabled')
           | Tools &nbsp
-          span.caret
+          i.glyphicon.glyphicon-globe
         ul.dropdown-menu.tool-menu
           li(ng-repeat='tool in tools')
             .btn.tool-items(ng-click='fetchTool(tool)') {{tool}}
-h4 {{currentTrip.title}}
+            //next section: add page, pages associated with current trip, save, delete page
+
+.row
+  .col-xs-12.col-md-12
+    .btn-toolbar
+      .btn-group
+        button.add-page(ng-click='newPage()')
+          | Add
+          i.glyphicon.glyphicon-list-alt
+      .btn-group(dropdown='dropdown', is-open='status.isopen')
+        button.btn.trip-pages.dropdown-toggle(type='button', ng-disabled='disabled')
+          | Pages
+          span.caret
+        ul.dropdown-menu.pages-menu
+          li(ng-repeat='page in pages')
+            .btn.pages(ng-click='setPage(page)') {{page.title}}
+      .btn-group(dropdown='dropdown')
+        button.btn.page-action(type='button') Page
+          button.btn.page-actions.dropdown-toggle(type='button')
+            span.caret
+            span.sr-only page actions
+          ul.dropdown-menu.pages-actions-menu(role='menu', style='text-align: center;')
+            li
+              a(href='#') Save &nbsp
+                i.glyphicon.glyphicon-saved &nbsp
+            li.divider
+            li
+              a(href='#') Edit  &nbsp
+                i.glyphicon.glyphicon-edit &nbsp
+            li.divider
+            li
+              a(href='#') Delete &nbsp
+                i.glyphicon.glyphicon-remove &nbsp
+
+.row
+  .col-xs-12
+    .page-background
+      h4 {{page.title}}
+
+

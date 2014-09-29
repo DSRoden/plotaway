@@ -1,0 +1,22 @@
+div
+  form.form-horizontal(name='_form', ng-submit='submit(_form)')
+      .modal-header
+        button.close(type='button', ng-click='dismiss()', aria-hidden='true') ×
+        h3 Board Settings
+      .modal-body
+        .form-group(ng-class='{error: _form.title.$error && _form.submitted}')
+          label.control-label.col-lg-3.col-md-3 Title
+          .col-lg-9.col-md-9
+            input.form-control(name='name', type='text', ng-model='form.title')
+
+      .modal-footer
+        a.btn.btn-danger.pull-left(ng-click='remove()', tabindex='-1')
+          i.glyphicon.glyphicon-trash
+          | Delete
+        a.btn.btn-default(ng-click='dismiss()', tabindex='-1')
+          i.glyphicon.glyphicon-remove
+          | Cancel
+        button.btn.btn-primary.btn-lg(type='submit')
+          i.glyphicon.glyphicon-ok
+          | Save
+

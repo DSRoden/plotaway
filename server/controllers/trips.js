@@ -23,23 +23,8 @@ exports.set = function(req, res){
 };
 
 exports.last = function(req, res){
-  Trip.lastTrip(req.user, function(err, trip){
+  Trip.lastTrip(req.user, function(err, trip, pages){
     console.log(trip);
-    res.send({trip:trip});
+    res.send({trip:trip, pages:pages});
   });
 };
-
-//exports.all = function(req, res){
-  //Board.all(req.user, function(err, boards){
-    //console.log('boards>>>>>>>>', boards);
-    //res.send({boards:boards});
-  //});
-//};
-
-//exports.findBoard = function(req, res){
-  //Board.findByIdWithPages(req.body, function(err, board, pages){
-    //console.log('board>>>>>', board);
-    //console.log('pages>>>>>', pages);
-    //res.send({board:board, pages:pages});
-  //});
-//};

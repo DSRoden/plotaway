@@ -22,8 +22,21 @@
 @pastelBlue: #AEC6CF;
 @darkElectricBlue: #536878;
 @spanishGray: #3B3C36;
+@spaceGray: #414A4C;
+@arsenicGray: #3B444B;
+@pageGreen : #01796F;
+@pageHover : #18453B;
+@eggplant: #614051;
+@eggplantLight: #825C6F;
 
 // for phone screen
+
+.page-background {
+  margin: 0px;
+  background-color: gray;
+  opacity: 0.5;
+  height: 100px;
+}
 
 @media screen and (min-width: 400px) {
 
@@ -33,7 +46,7 @@
     border-radius: 0px;
     background-color: @straw;
     width: 90px;
-    height: 60px;
+    height: 50px;
     border: 0px;
     color: @spanishGray;
   }
@@ -52,7 +65,7 @@
   .my-trips {
     border-radius: 0px;
     width: 275px;
-    height: 60px;
+    height: 50px;
     background-color: #F28500;
     border: 0px;
     color: @spanishGray;
@@ -71,21 +84,23 @@
   .current-trip {
     margin-top: 5px;
     margin-bottom: 5px;
-    background-color: @pastelBlue;
+    background-color: @eggplantLight;
     border-radius: 0px;
     border: none;
     height: 40px;
     width: 275px;
-    color: @spanishGray;
+    color: #ccc;
   }
 
   .current-trip:hover {
-    background-color: @darkElectricBlue;
+    background-color: @eggplant;
+    color: #ccc;
   }
 
   .current-trip:focus {
     outline: 0px;
-    border: 1px solid @darkElectricBlue;
+    border: 1px solid @eggplant;
+    color: #ccc;
   }
 
   // tools
@@ -97,15 +112,18 @@
     border-radius: 0px;
     height: 40px;
     width: 90px;
-    color: @spanishGray;
+    color: #ccc;
   }
 
   .tools:hover {
     background-color: @darkMossGreen;
+    color: #ccc;
   }
 
   .tools:focus {
     border: 1px solid @darkMossGreen;;
+    color: #ccc;
+    color: #ccc;
   }
 
 
@@ -152,5 +170,841 @@
   .tool-items:hover {
     background-color: #ccc;
   }
+
+
+  // new page
+
+  .add-page {
+    border-radius: 0px;
+    background-color: @spaceGray;
+    width: 40px;
+    height: 40px;
+    border: 0px;
+    color: #ccc;
+  }
+
+  .add-page:hover {
+    background-color: @arsenicGray;
+  }
+
+  .add-page:focus {
+    outline: 0px;
+    border: 1px solid @arsenicGray;
+  }
+
+  //trip pages
+
+  .trip-pages {
+    border-radius: 0px;
+    width: 230px;
+    height: 40px;
+    background-color: @pageGreen;
+    border: 0px;
+    color: #ccc;
+  }
+
+  .trip-pages:hover {
+    background-color: @pageHover;
+    color: #ccc;
+  }
+
+  .trip-pages:focus {
+    border: 1px solid @pageHover;
+    color: #ccc;
+  }
+
+  //pages menu
+
+  .pages-menu {
+      border-radius: 0px;
+      width: 230px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .pages {
+    color: @spanishGray;
+    width: 230px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .pages:hover {
+    background-color: #ccc;
+  }
+
+  //page action
+  .page-action {
+    margin-bottom: 5px;
+    background-color: @seaBlue;
+    border-radius: 0px;
+    height: 40px;
+    width: 60px;
+    color: #ccc;
+  }
+
+  .page-action:hover {
+    background-color: @electricBlue;
+    color: #ccc;
+  }
+
+  .page-action:focus {
+    border: 1px solid @electricBlue;
+    color: #ccc;
+  }
+
+  //page actions toggle
+
+  .page-actions {
+    height: 40px;
+    width: 30px;
+    background-color: @seaBlue;
+    color: #ccc;
+  }
+
+  .page-actions:hover {
+    background-color: @electricBlue;
+    color: #ccc;
+  }
+  .page-actions:focus {
+    border: 1px solid @electricBlue;
+    color: #ccc;
+  }
+  //page actions menu
+
+  .pages-actions-menu {
+      border-radius: 0px;
+      width: 90px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+}
+
+//242 lines
+/////////////////////////////////////////
+// screen settings  for medium monitor//
+///////////////////////////////////////
+
+@media screen and (min-width: 680px) {
+
+  // new trip
+
+  .new-trip {
+    border-radius: 0px;
+    background-color: @straw;
+    width: 80px;
+    height: 60px;
+    border: 0px;
+    color: @spanishGray;
+  }
+
+  .new-trip:hover {
+    background-color: @lemonCurry;
+  }
+
+  .new-trip:focus {
+    outline: 0px;
+    border: 1px solid @lemonCurry;
+  }
+
+  // my trips
+
+  .my-trips {
+    border-radius: 0px;
+    width: 250px;
+    height: 60px;
+    background-color: #F28500;
+    border: 0px;
+    color: @spanishGray;
+  }
+
+  .my-trips:hover {
+    background-color: #CC5500;
+  }
+
+  .my-trips:focus {
+    border: 1px solid #CC5500;
+  }
+
+// current trip
+
+  .current-trip {
+    margin: 0;
+    background-color: @eggplantLight;
+    border-radius: 0px;
+    border: none;
+    height: 60px;
+    width: 250px;
+    color: #ccc;
+  }
+
+  .current-trip:hover {
+    background-color: @eggplant;
+  }
+
+  .current-trip:focus {
+    outline: 0px;
+    border: 1px solid @eggplant;
+  }
+
+  // tools
+
+  .tools {
+    margin: 0;
+    background-color: @avocado;
+    border-radius: 0px;
+    height: 60px;
+    width: 120px;
+    color: #ccc;
+  }
+
+  .tools:hover {
+    background-color: @darkMossGreen;
+  }
+
+  .tools:focus {
+    border: 1px solid @darkMossGreen;;
+  }
+
+  //dropdown trip menu
+
+  .dropdown-menu {
+    min-width: 80px;
+  }
+
+  .trip-menu {
+      border-radius: 0px;
+      width: 250px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .trip-items {
+    color: @spanishGray;
+    width: 250px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .trip-items:hover {
+    background-color: #ccc;
+  }
+
+  //drop down tool menu
+
+  .dropdown-menu.tool-menu {
+      border-radius: 0px;
+      width: 120px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .tool-items {
+    color: @BLACK;
+    width: 120px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .tool-items:hover {
+    background-color: #ccc;
+  }
+
+  // new page
+
+  .add-page {
+    border-radius: 0px;
+    background-color: @spaceGray;
+    margin-top: 5px;
+    width: 80px;
+    height: 50px;
+    border: 0px;
+    color: #ccc;
+  }
+
+  .add-page:hover {
+    background-color: @arsenicGray;
+  }
+
+  .add-page:focus {
+    outline: 0px;
+    border: 1px solid @arsenicGray;
+  }
+
+  //trip pages
+
+  .trip-pages {
+    border-radius: 0px;
+    margin-top: 5px;
+    width: 450px;
+    height: 50px;
+    background-color: @pageGreen;
+    border: 0px;
+    color: #ccc;
+  }
+
+  .trip-pages:hover {
+    background-color: @pageHover;
+    color: #ccc;
+  }
+
+  .trip-pages:focus {
+    border: 1px solid @pageHover;
+    color: #ccc;
+  }
+
+  //pages menu
+
+
+  .pages-menu {
+      border-radius: 0px;
+      width: 450px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .pages {
+    color: @spanishGray;
+    width: 450px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .pages:hover {
+    background-color: #ccc;
+  }
+
+  //page action
+  .page-action {
+    margin-top: 5px;
+    background-color: @seaBlue;
+    border-radius: 0px;
+    height: 50px;
+    width: 100px;
+    color: #ccc;
+  }
+
+  .page-action:hover {
+    background-color: @electricBlue;
+    color: #ccc;
+  }
+
+  .page-action:focus {
+    border: 1px solid @electricBlue;
+    color: #ccc;
+  }
+
+  //page actions toggle
+
+  .page-actions {
+    margin-top: 5px;
+    height: 50px;
+    width: 75px;
+    background-color: @seaBlue;
+    color: #ccc;
+  }
+
+  .page-actions:hover {
+    background-color: @electricBlue;
+    color: #ccc;
+  }
+  .page-actions:focus {
+    border: 1px solid @electricBlue;
+    color: #ccc;
+  }
+
+  //page actions menu
+
+  .pages-actions-menu {
+      border-radius: 0px;
+      width: 175px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+}
+
+
+////////////////////////////////////////
+// screen settings for ipad landscape monitor//
+//////////////////////////////////////
+
+@media screen and (min-width: 1010px) {
+
+  // new trip
+
+  .new-trip {
+    border-radius: 0px;
+    background-color: @straw;
+    width: 100px;
+    height: 60px;
+    border: 0px;
+    color: @spanishGray;
+  }
+
+  .new-trip:hover {
+    background-color: @lemonCurry;
+  }
+
+  .new-trip:focus {
+    outline: 0px;
+    border: 1px solid @lemonCurry;
+  }
+
+  // my trips
+
+  .my-trips {
+    border-radius: 0px;
+    width: 350px;
+    height: 60px;
+    background-color: #F28500;
+    border: 0px;
+    color: @spanishGray;
+  }
+
+  .my-trips:hover {
+    background-color: #CC5500;
+  }
+
+  .my-trips:focus {
+    border: 1px solid #CC5500;
+  }
+
+// current trip
+
+  .current-trip {
+    margin: 0;
+    background-color: @eggplantLight;
+    border-radius: 0px;
+    border: none;
+    height: 60px;
+    width: 350px;
+    color: #ccc;
+  }
+
+  .current-trip:hover {
+    background-color: @eggplant;
+  }
+
+  .current-trip:focus {
+    outline: 0px;
+    border: 1px solid @eggplant;
+  }
+
+  // tools
+
+  .tools {
+    margin: 0;
+    background-color: @avocado;
+    border-radius: 0px;
+    height: 60px;
+    width: 110px;
+    color: #ccc;
+  }
+
+  .tools:hover {
+    background-color: @darkMossGreen;
+  }
+
+  .tools:focus {
+    border: 1px solid @darkMossGreen;;
+  }
+
+  //dropdown trip menu
+
+  .dropdown-menu {
+    min-width: 80px;
+  }
+
+  .trip-menu {
+      border-radius: 0px;
+      width: 350px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .trip-items {
+    color: @spanishGray;
+    width: 350px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .trip-items:hover {
+    background-color: #ccc;
+  }
+
+  //drop down tool menu
+
+  .dropdown-menu.tool-menu {
+      border-radius: 0px;
+      width: 110px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .tool-items {
+    color: @BLACK;
+    width: 110px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .tool-items:hover {
+    background-color: #ccc;
+  }
+
+  // new page
+
+  .add-page {
+    border-radius: 0px;
+    background-color: @spaceGray;
+    margin-top: 5px;
+    width: 100px;
+    height: 50px;
+    border: 0px;
+    color: #ccc;
+  }
+
+  .add-page:hover {
+    background-color: @arsenicGray;
+  }
+
+  .add-page:focus {
+    outline: 0px;
+    border: 1px solid @arsenicGray;
+  }
+
+  //trip pages
+
+  .trip-pages {
+    border-radius: 0px;
+    margin-top: 5px;
+    width: 600px;
+    height: 50px;
+    background-color: @pageGreen;
+    border: 0px;
+    color: #ccc;
+  }
+
+  .trip-pages:hover {
+    background-color: @pageHover;
+    color: #ccc;
+  }
+
+  .trip-pages:focus {
+    border: 1px solid @pageHover;
+    color: #ccc;
+  }
+
+  //pages menu
+
+
+  .pages-menu {
+      border-radius: 0px;
+      width: 600px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .pages {
+    color: @spanishGray;
+    width: 600px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .pages:hover {
+    background-color: #ccc;
+  }
+
+  //page action
+  .page-action {
+    margin-top: 5px;
+    background-color: @seaBlue;
+    border-radius: 0px;
+    height: 50px;
+    width: 137px;
+    color: #ccc;
+  }
+
+  .page-action:hover {
+    background-color: @electricBlue;
+    color: #ccc;
+  }
+
+  .page-action:focus {
+    border: 1px solid @electricBlue;
+    color: #ccc;
+  }
+
+  //page actions toggle
+
+  .page-actions {
+    margin-top: 5px;
+    height: 50px;
+    width: 80px;
+    background-color: @seaBlue;
+    color: #ccc;
+  }
+
+  .page-actions:hover {
+    background-color: @electricBlue;
+    color: #ccc;
+  }
+  .page-actions:focus {
+    border: 1px solid @electricBlue;
+    color: #ccc;
+  }
+
+  //page actions menu
+
+  .pages-actions-menu {
+      border-radius: 0px;
+      width: 217px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+}
+
+////////////////////////////////////////
+// screen settings for larger monitor//
+//////////////////////////////////////
+
+@media screen and (min-width: 1200px) {
+
+  // new trip
+
+  .new-trip {
+    border-radius: 0px;
+    background-color: @straw;
+    width: 110px;
+    height: 60px;
+    border: 0px;
+    color: @spanishGray;
+  }
+
+  .new-trip:hover {
+    background-color: @lemonCurry;
+  }
+
+  .new-trip:focus {
+    outline: 0px;
+    border: 1px solid @lemonCurry;
+  }
+
+  // my trips
+
+  .my-trips {
+    border-radius: 0px;
+    width: 450px;
+    height: 60px;
+    background-color: #F28500;
+    border: 0px;
+    color: @spanishGray;
+  }
+
+  .my-trips:hover {
+    background-color: #CC5500;
+  }
+
+  .my-trips:focus {
+    border: 1px solid #CC5500;
+  }
+
+// current trip
+
+  .current-trip {
+    margin: 0;
+    background-color: @eggplantLight;
+    border-radius: 0px;
+    border: none;
+    height: 60px;
+    width: 450px;
+    color: #ccc;
+  }
+
+  .current-trip:hover {
+    background-color: @eggplant;
+  }
+
+  .current-trip:focus {
+    outline: 0px;
+    border: 1px solid @eggplant;
+  }
+
+  // tools
+
+  .tools {
+    margin: 0;
+    background-color: @avocado;
+    border-radius: 0px;
+    height: 60px;
+    width: 110px;
+    color: #ccc;
+  }
+
+  .tools:hover {
+    background-color: @darkMossGreen;
+  }
+
+  .tools:focus {
+    border: 1px solid @darkMossGreen;;
+  }
+
+  //dropdown trip menu
+
+  .dropdown-menu {
+    min-width: 80px;
+  }
+
+  .trip-menu {
+      border-radius: 0px;
+      width: 450px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .trip-items {
+    color: @spanishGray;
+    width: 450px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .trip-items:hover {
+    background-color: #ccc;
+  }
+
+  //drop down tool menu
+
+  .dropdown-menu.tool-menu {
+      border-radius: 0px;
+      width: 110px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .tool-items {
+    color: @BLACK;
+    width: 110px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .tool-items:hover {
+    background-color: #ccc;
+  }
+
+  // new page
+
+  .add-page {
+    border-radius: 0px;
+    background-color: @spaceGray;
+    margin-top: 5px;
+    width: 110px;
+    height: 40px;
+    border: 0px;
+    color: #ccc;
+  }
+
+  .add-page:hover {
+    background-color: @arsenicGray;
+  }
+
+  .add-page:focus {
+    outline: 0px;
+    border: 1px solid @arsenicGray;
+  }
+
+  //trip pages
+
+  .trip-pages {
+    border-radius: 0px;
+    margin-top: 5px;
+    width: 810px;
+    height: 40px;
+    background-color: @pageGreen;
+    border: 0px;
+    color: #ccc;
+  }
+
+  .trip-pages:hover {
+    background-color: @pageHover;
+    color: #ccc;
+  }
+
+  .trip-pages:focus {
+    border: 1px solid @pageHover;
+    color: #ccc;
+  }
+
+  //pages menu
+
+
+  .pages-menu {
+      border-radius: 0px;
+      width: 810px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
+
+  .pages {
+    color: @spanishGray;
+    width: 810px;
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .pages:hover {
+    background-color: #ccc;
+  }
+
+  //page action
+  .page-action {
+    margin-top: 5px;
+    background-color: @seaBlue;
+    border-radius: 0px;
+    height: 40px;
+    width: 127px;
+    color: #ccc;
+  }
+
+  .page-action:hover {
+    background-color: @electricBlue;
+    color: #ccc;
+  }
+
+  .page-action:focus {
+    border: 1px solid @electricBlue;
+    color: #ccc;
+  }
+
+  //page actions toggle
+
+  .page-actions {
+    margin-top: 5px;
+    height: 40px;
+    width: 80px;
+    background-color: @seaBlue;
+    color: #ccc;
+  }
+
+  .page-actions:hover {
+    background-color: @electricBlue;
+    color: #ccc;
+  }
+  .page-actions:focus {
+    border: 1px solid @electricBlue;
+    color: #ccc;
+  }
+
+  //page actions menu
+
+  .pages-actions-menu {
+      border-radius: 0px;
+      width: 207px;
+      background-color: #EFEEE8;
+      color: @spanishGray;
+    }
 }
 

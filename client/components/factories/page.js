@@ -12,7 +12,11 @@
       return $http.post('/pages', currentBoard);
     }
 
-    return {create:create, all:all};
+    function set(page){
+      return $http.post('/setpage', {page:page});
+    }
+
+    return {create:create, all:all, set:set};
   }]);
 })();
 

@@ -33,13 +33,14 @@ module.exports = function(app, express){
   app.post('/newboard', boards.create);
   app.get('/boards', boards.all);
   app.post('/board', boards.findBoard);
-  app.post('/newpage', pages.create);
-  app.post('/pages', pages.all);
+  //app.post('/pages', pages.all);
+  app.post('/setpage', pages.set);
 
   app.post('/newtrip', trips.create);
   app.get('/trips', trips.index);
   app.post('/settrip', trips.set);
   app.get('/lasttrip', trips.last);
+  app.post('/newpage', pages.create);
 
   console.log('Express: Routes Loaded');
 };

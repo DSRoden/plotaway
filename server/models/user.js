@@ -21,7 +21,7 @@ User.register = function(o, cb){
     o.password = bcrypt.hashSync(o.password, 10);
     User.collection.save(o, function(err, user){
       var o = {title: 'First Trip!', isSet: true};
-      require('./trip').create(user, o, function(){
+      require('./trip').create(user, o, function(err, trip){
         cb(err, user);
       });
     });
