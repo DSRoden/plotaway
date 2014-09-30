@@ -29,16 +29,79 @@
 @eggplant: #614051;
 @eggplantLight: #825C6F;
 
-// for phone screen
 
-.page-background {
+.background {
   margin: 0px;
   background-color: gray;
   opacity: 0.5;
   height: 100px;
 }
 
+
+
+// for phone screen
 @media screen and (min-width: 400px) {
+
+  //background for map
+  /*.map {*/
+    /*display: block;*/
+    /*margin: 0 auto;*/
+    /*width: 370px;*/
+    /*padding: 5px;*/
+    /*background-color: #ccc;*/
+    /*opacity: 0.7;*/
+  /*}*/
+
+  // class for angular-google-map
+ .angular-google-map-container {
+   display: block;
+   margin: 0 auto;
+   height: 300px;
+   width: 350px;
+   opacity: 0.9;
+ }
+
+ //map input
+  .location {
+    width: 270px;
+    margin-left: 9px;
+    height: 40px;
+    margin-top: 3px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    background-color: #ccc;
+    opacity: 1;
+    border: none;
+    color: @arsenicGray;
+  }
+
+  .location:focus {
+    outline: 0px;
+    border: none;;
+  }
+
+  //locate button
+  .map-button {
+    background-color: @spaceGray;
+    width: 80px;
+    height: 40px;
+    border: none;
+    margin-bottom: 2px;
+    border-radius: 0px;
+    color: #ccc;
+  }
+
+  .map-button:hover {
+    background-color: @arsenicGray;
+    color: #ccc;
+  }
+
+  .map-button:focus {
+    outline: 0px;
+    border: @arsenicGray;
+    color: #ccc;
+  }
+
 
   // new trip
 

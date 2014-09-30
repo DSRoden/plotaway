@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('plotaway', ['gridster','ngRoute', 'LocalForageModule', 'ui.bootstrap', 'ngAnimate', 'flow', 'typeWriterModule', 'angularFileUpload'])
+  angular.module('plotaway', ['gridster','ngRoute', 'LocalForageModule', 'ui.bootstrap', 'ngAnimate', 'flow', 'typeWriterModule', 'angularFileUpload', 'autocompletePlace', 'google-maps'])
   .config(['$routeProvider', '$httpProvider', '$localForageProvider', function($routeProvider, $httpProvider, $localForageProvider){
     $routeProvider
     .when('/', {templateUrl:'/views/home/home.html', controller:'HomeCtrl'})

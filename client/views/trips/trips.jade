@@ -59,9 +59,12 @@
               a(href='#') Delete &nbsp
                 i.glyphicon.glyphicon-remove &nbsp
 
-.row
+// travel research directive
+.row(ng-if='showMap')
   .col-xs-12
-    .page-background
-      h4 {{page.title}}
+    input.location(type='text', ng-model='city.name', googleplace='googleplace')
+    button.btn.map-button(ng-click='mapLocation()') Map
+    .angular-google-map-container(ng-if='showMap', google-map, draggable='true', center='map.center', zoom='map.zoom', refresh='map.refresh', pan='1', options='options')
+      .marker(marker, coords='marker.coords', options='marker.options', events='marker.events', idkey='marker.id')
 
 

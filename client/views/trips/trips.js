@@ -1,14 +1,99 @@
+/*jshint -W030 */
+/*jshint camelcase: false*/
+/*global google*/
 (function(){
   'use strict';
 
   angular.module('plotaway')
-  .controller('TripsCtrl', ['$scope', 'Trip', 'Page', '$modal', '$location', '$rootScope', '$interval', '$route', '$routeParams',
-    function($scope, Trip, Page, $modal, $location, $rootScope, $interval, $route, $routeParams){
-    $scope.trip  = {};
-    $scope.trips = [];
-    $scope.tools = ['1', '2', '3'];
-    $scope.pages = [];
-    $scope.page  = {};
+  .controller('TripsCtrl', ['$scope', 'Trip', 'Page', '$modal', '$location', '$rootScope', '$interval', '$route', '$routeParams', '$log',
+    function($scope, Trip, Page, $modal, $location, $rootScope, $interval, $route, $routeParams, $log){
+
+    $scope.trip       = {};
+    $scope.trips      = [];
+    $scope.tools      = ['Wiki', 'Map', 'Budget', 'Tips'];
+    $scope.pages      = [];
+    $scope.page       = {};
+    $scope.showMap    = false;
+
+////////////////////////////////////////////////////////////////////////////////////////
+///////MAP, SHOULD BE REFACTORED TO ANOTHER CONTROLLER, ALSO NOT FLUID ENOUGH//////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+    //set scope properties for map
+    $scope.gPlace;
+    $scope.city = {};
+    $scope.cityCap = null;
+    $scope.lat = 40;
+    $scope.lng = -74;
+
+    //make a function that will create a map with a marker
+    var updateMap = function(lat, lng){
+      $scope.map = {
+        center: {
+          latitude: $scope.lat,
+          longitude: $scope.lng
+        },
+        zoom: 12
+      };
+
+      //code place marker/pin
+      $scope.marker= {
+        id:0,
+        coords: {
+          latitude: $scope.lat,
+          longitude: $scope.lng
+        },
+        options: {draggable: true},
+        events: {
+          dragend: function(marker, eventName, args){
+                    $log.log('marker dragend');
+                    $log.log(marker.getPosition().lat());
+                    $log.log(marker.getPosition().lng());
+                    $log.log(marker.setAnimation(google.maps.Animation.BOUNCE));
+                  }
+        }
+     };
+  };
+
+    //call the function to make the map
+    updateMap();
+
+    //geocode function
+    function codeAddress(){
+      var address = $scope.city.name,
+          geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'address': address}, function(results, status){
+        //var name = results[0].geometry.formatted_address,
+        $scope.lat= results[0].geometry.location.lat(),
+        $scope.lng = results[0].geometry.location.lng();
+        //console.log($scope.lat, $scope.lng);
+      });
+    }
+
+    // find location info and update map
+    $scope.mapLocation = function(){
+       $scope.cityCap= $scope.city.name.split(',')[0];
+       //var city = $scope.city.name;
+       //console.log(city);
+       //geocode the city
+       codeAddress();
+       updateMap();
+       //refresh the map
+       $scope.map.refresh = true;
+    };
+
+///////////////////////////////////////////////////////////////////
+/////////END OF MAP CODE/////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+
+
+    //show tools as they are selected
+    $scope.fetchTool = function(tool){
+      switch(tool){
+        case 'Map':
+          $scope.showMap = true;
+      }
+    };
 
     //initiate a modal form for creating a new page
     $scope.newPage = function(){
@@ -56,9 +141,6 @@
           $scope.page = $scope.pages[i];
         }
       }
-        //var transmit = $scope.trip;
-        //$rootScope.$broadcast('transmitTrip', transmit);
-        //console.log('broadcasting', transmit);
     });
 
     //set and display trip to trip that user selects from 'My Trips'
