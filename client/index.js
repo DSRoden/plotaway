@@ -1,9 +1,10 @@
 (function(){
   'use strict';
 
-  angular.module('plotaway', ['gridster','ngRoute', 'LocalForageModule', 'ui.bootstrap', 'ngAnimate', 'flow', 'typeWriterModule', 'angularFileUpload', 'autocompletePlace', 'google-maps'])
-  .config(['$routeProvider', '$httpProvider', '$localForageProvider', function($routeProvider, $httpProvider, $localForageProvider){
-    $routeProvider
+  angular.module('plotaway', ['gridster','ui.timepicker', 'ngRoute', 'angular-loading-bar','LocalForageModule', 'ui.bootstrap', 'ngAnimate', 'flow','typeWriterModule', 'angularFileUpload', 'autocompletePlace', 'google-maps', 'wikiSherpaModule', 'anguFixedHeaderTable'])
+  .config(['$routeProvider', '$httpProvider', '$sceDelegateProvider', '$localForageProvider', function($routeProvider, $httpProvider, $sceDelegateProvider, $localForageProvider){
+     $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://en.wikivoyage.org/**']);
+     $routeProvider
     .when('/', {templateUrl:'/views/home/home.html', controller:'HomeCtrl'})
     .when('/register', {templateUrl:'/views/register/register.html', controller:'RegisterCtrl'})
     .when('/login',    {templateUrl:'/views/login/login.html',       controller:'LoginCtrl'})

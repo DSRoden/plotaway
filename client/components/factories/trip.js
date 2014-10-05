@@ -20,6 +20,7 @@
       return $http.get('/lasttrip');
     }
 
+
     return {all:all, create: create, set: set, getLast:getLast};
   }]);
 })();

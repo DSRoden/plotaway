@@ -23,8 +23,10 @@ exports.set = function(req, res){
 };
 
 exports.last = function(req, res){
-  Trip.lastTrip(req.user, function(err, trip, pages){
+  Trip.lastTrip(req.user, function(err, trip, pages, plots, notes){
     console.log(trip);
-    res.send({trip:trip, pages:pages});
+    console.log('last/ pages>>>>>>>>>>>>', pages);
+    console.log('last/ notes>>>>>>>>>>>>>>', notes);
+    res.send({trip:trip, pages:pages, plots: plots, notes: notes});
   });
 };

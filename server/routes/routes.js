@@ -11,6 +11,9 @@ var morgan         = require('morgan'),
     boards          = require('../controllers/boards'),
     pages          = require('../controllers/pages'),
     trips          = require('../controllers/trips'),
+    plots         = require('../controllers/plots'),
+    sherpas          = require('../controllers/sherpas'),
+    notes          = require('../controllers/notes'),
     users          = require('../controllers/users');
 
 module.exports = function(app, express){
@@ -41,6 +44,13 @@ module.exports = function(app, express){
   app.post('/settrip', trips.set);
   app.get('/lasttrip', trips.last);
   app.post('/newpage', pages.create);
+  app.post('/plots', plots.create);
+  app.get('/plots', plots.all);
+  //app.get('/tripplots', plots.allPlots);
+  app.delete('/removeplot/:id', plots.remove);
+  app.post('/notes',  notes.create);
+
+  app.post('/destination', sherpas.findDestination);
 
   console.log('Express: Routes Loaded');
 };

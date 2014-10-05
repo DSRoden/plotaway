@@ -1,0 +1,47 @@
+div
+  form.form-horizontal(name='_form', ng-submit='submit(_form)')
+      .modal-header
+        button.close(type='button', ng-click='dismiss()', aria-hidden='true') ×
+        h3 New Plan
+        label Description:
+        input.form-control(name='description', type='text', ng-model='form.description')
+      .modal-body
+        .form-group(ng-class='{error: _form.title.$error && _form.submitted}')
+          .col-lg-9.col-md-9
+            label Date:
+            span &nbsp &nbsp
+            input(type='date',ng-model='date.date')
+            span &nbsp &nbsp
+            label Time:
+            span &nbsp &nbsp
+            input(type='time',ng-model='date.time')
+            br
+            br
+            label Category:
+            select.form-control(name='category', type='text', ng-model='form.category', placeholder='category')
+              option(value='Other') Other
+              option(value='Accomodations') Accomodations
+              option(value='Transportation') Transportation
+              option(value='Eating') Eating
+              option(value='Sightseeing') Sightseeing
+              option(value='Activity') Activity
+              option(value='Shopping') Shopping
+            label Priority Level:
+            select.form-control(name='priority', type='text', ng-model='form.priority')
+              option(value='Low') Low
+              option(value='Medium') Medium
+              option(value='High')  High
+            label Cost:
+            input.form-control(name='description', type='number', ng-model='form.cost')
+
+      .modal-footer
+        a.btn.btn-danger.pull-left(ng-click='remove()', tabindex='-1')
+          i.glyphicon.glyphicon-trash
+          | Delete
+        a.btn.btn-default(ng-click='dismiss()', tabindex='-1')
+          i.glyphicon.glyphicon-remove
+          | Cancel
+        button.btn.btn-primary.btn-lg(type='submit')
+          i.glyphicon.glyphicon-ok
+          | Save
+

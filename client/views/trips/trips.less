@@ -28,43 +28,556 @@
 @pageHover : #18453B;
 @eggplant: #614051;
 @eggplantLight: #825C6F;
+@timberwolfGray: #DBD7D2;
+@orange: #F28500;
+@darkOrange: #CC5500;
 
+///////////////////////////////
+//////universal settings//////
+/////////////////////////////
 
-.background {
-  margin: 0px;
-  background-color: gray;
-  opacity: 0.5;
+.acc {
+  background-color: @electricBlue;
+}
+
+.tra {
+  background-color: @goGreen;
+}
+
+.sight {
+  background-color: @eggplant;
+}
+
+.eat {
+  background-color: @peachyKeen;
+}
+
+.act {
+  background-color: @goldenYellow;
+}
+
+.oth {
+  background-color: @timberwolfGray;
+}
+
+.shop {
+  background-color: @pastelRed;
+}
+.accomodations {
+  background-image: url('/img/accomodations-01.png');
+  background-size: cover;
+}
+
+.transportation {
+  background-image: url('/img/transportation-01.png');
+  background-size: cover;
+}
+
+.sightseeing {
+  background-image: url('/img/sightseeing-01.png');
+  background-size: cover;
+}
+
+.activity {
+  background-image: url('/img/activity-01.png');
+  background-size: cover;
+}
+
+.shopping {
+  background-image: url('/img/shopping-01.png');
+  background-size: cover;
+}
+.eating {
+  background-image: url('/img/Eating-01.png');
+  background-size: cover;
+}
+
+.other {
+  background-image: url('/img/other-01.png');
+  background-size: cover;
+}
+
+//trip settings//
+
+.trip-settings {
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: @timberwolfGray;
+  height: 400px;
+  width: 772px;
+  color: #ccc;
+}
+
+.trip-title {
+  position: absolute;
+  width: 732px;
+  color: #ccc;
+  height: 40px;
+  background-color: #ccc;
+}
+
+.trip-title h5 {
+  padding: 10px;
+  text-align: left;
+  color: @arsenicGray;
+}
+
+.exit-trip-set {
+  position: absolute;
+  margin-top: 0;
+  height: 40px;
+  background-color: @spaceGray;
+  border-radius: 0px;
+  top: 0;
+  left: 732px;
+  color: #ccc;
+}
+
+.exit-trip-set:hover {
+  background-color: @arsenicGray;
+  color: #ccc;
+}
+
+.trip-stats {
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  background-color: #ccc;
+  width: 200px;
+  height: 120px;
+}
+
+.trip-stats p {
+  margin-left: 5px;
+  color: @arsenicGray;
+}
+
+.trip-description {
+  position: absolute;
+  width: 200px;
   height: 100px;
+  top: 170px;
+  left: 10px;
+  background-color: #ccc;
+}
+
+.trip-description p {
+  margin-left: 5px;
+  color: @arsenicGray;
+}
+
+.trip-dates {
+  position: absolute;
+  width: 200px;
+  height: 80px;
+  top: 270px;
+  left: 10px;
+  background-color: #ccc;
+}
+
+.trip-dates p {
+  margin-left: 5px;
+  color: @arsenicGray;
+}
+
+.num-pages {
+  background-color: @timberwolfGray;
+}
+
+.num-plots {
+  background-color: @timberwolfGray;
 }
 
 
+.trip-notes-table {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  top: 50px;
+  left: 250px;
+}
 
-// for phone screen
+.trip-notes-table thead {
+  width: 500px;
+  height: 40px;
+}
+.trip-notes-table tbody {
+  width: 500px;
+  height: 200px;
+  overflow: scroll;
+}
+
+.trip-notes-table th.note-value {
+  width: 400px;
+  color: @arsenicGray;
+}
+.trip-notes-table th.date {
+  width: 100px;
+  color: @arsenicGray;
+}
+
+.trip-notes-table td.tddate {
+  width: 100px;
+  color: @arsenicGray;
+}
+
+.trip-notes-table td.tdvalue {
+  width: 400px;
+  color: @arsenicGray;
+}
+
+.trip-notes {
+  position: absolute;
+  width: 500px;
+  height: 60px;
+  top: 315px;
+  left: 250px;
+}
+
+.trip-notes input {
+  width: 400px;
+  margin-top: 5px;
+  height: 60px;
+}
+
+.trip-notes .note-btn {
+  margin-top: -2px;
+  margin-left: 5px;
+  border-radius: 0;
+  width: 90px;
+  height: 60px;
+}
+
+.trip-notes-table table thead  th {
+  width: 90px;
+}
+
+.trip-notes-table  table tbody td {
+  color: @arsenicGray;
+}
+
+// itinerary & table per page//
+.itinerary {
+  position: relative;
+  margin-top: 5px;
+}
+
+.close-page {
+  border-radius: 0;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 742px;
+  top: 0;
+  background-color: @spaceGray;
+  color: #ccc;
+}
+
+.close-page:hover {
+  background-color: @arsenicGray;
+  color: #ccc;
+}
+
+.table-margin {
+  margin-left: 10px;
+}
+th {
+  width: 107px;
+}
+
+td{
+  color: #ccc;
+  height: 110px;
+  width: 110px;
+  color: white;
+}
+
+thead {
+  width: 770px;
+  display: block;
+}
+
+tbody {
+  display: block;
+  width: 770px;
+  height: 330px;
+}
+
+tbody {
+  overflow: auto;
+}
+
+.add-plot {
+  font-size: 12px;
+}
+
+.pdf-button {
+  margin-left: 10px;
+  width: 772px;
+  background-color: @timberwolfGray;
+  border-radius: 0px;
+  color: @arsenicGray;
+}
+
+.pdf-button:hover {
+  color: white;
+}
+
+.current-page {
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 40px;
+  width: 772px;
+  background-color: #ccc;
+  color: @arsenicGray;
+  text-align: center;
+}
+
+.current-page p {
+  padding: 10px;
+  color: @arsenicGray;
+}
+
+.new-page-pointer{
+  cursor: pointer;
+}
+
+.photo {
+  height: 200px;
+  background-size: cover;
+}
+
+//////trip settings/////////////
+/////////////////////////////////
+.trip-settings.ng-enter, .trip-settings.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.trip-settings.ng-enter,
+.trip-settings.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.trip-settings.ng-leave,
+.trip-settings.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+
+//////itinerary/////////////
+/////////////////////////////////
+.itinerary.ng-enter, .itinerary.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.itinerary.ng-enter,
+.trip-settings.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.itinerary.ng-leave,
+.itinerary.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+//////Wiki Animations/////////////
+/////////////////////////////////
+.wiki.ng-enter, .wiki.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.wiki.ng-enter,
+.wiki.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.wiki.ng-leave,
+.wiki.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.wiki {
+  margin-top: 10px;
+}
+
+.wiki-info{
+  margin-top: 0px;
+  margin-left: 5px;
+  width: 347px;
+}
+////////////////////////////////
+// map animations//////////////
+//////////////////////////////
+.map.ng-enter, .map.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.map.ng-enter,
+.map.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.map.ng-leave,
+.map.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.map {
+  margin-top: 8px;
+}
+
+
+///////////////////////////////
+///// for phone screen////////
+/////////////////////////////
+
 @media screen and (min-width: 400px) {
 
-  //background for map
-  /*.map {*/
-    /*display: block;*/
-    /*margin: 0 auto;*/
-    /*width: 370px;*/
-    /*padding: 5px;*/
-    /*background-color: #ccc;*/
-    /*opacity: 0.7;*/
-  /*}*/
+   // main
+  .main {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .main-pages {
+    display: block;
+    margin: 0 auto;
+  }
+
+  img {
+    width: 346px;
+  }
+
+
+  //wiki search bar
+
+  h5 {
+    margin-left: 5px;
+    background-color: #ccc;
+    text-align: center;
+    padding: 2px;
+    margin-top: 3px;
+    margin-bottom: 0;
+    width: 347px;
+    color: @arsenicGray;
+    opacity: 0.9;
+  }
+
+  .destination {
+    width: 200px;
+    height: 40px;
+    background-color: #ccc;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    margin-right: 2px;
+    opacity: 1;
+    border: none;
+    color: @arsenicGray;
+  }
+
+  .destination:focus {
+    outline: 0;
+    border: none;
+  }
+
+  .wiki-button {
+    background-color: @spaceGray;
+    width: 55px;
+    height: 40px;
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 3px;
+    border-radius: 0px;
+    color: #ccc;
+  }
+  .wiki-button:hover {
+    background-color: @arsenicGray;
+    color: #ccc;
+  }
+
+  .wiki-button:focus {
+    outline: none;
+    border: @arsenicGray;
+    color: #ccc;
+  }
+
+  .wiki-button:active {
+    outline: none;
+    border: @arsenicGray;
+    color: #ccc;
+  }
+
+  .map-destination-button {
+    background-color: @spaceGray;
+    width: 50px;
+    height: 40px;
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 3px;
+    border-radius: 0px;
+    color: #ccc;
+  }
+
+  .map-destination-button:hover {
+    background-color: @arsenicGray;
+    color: #ccc;
+  }
+
+  .map-destination-button:focus {
+    outline: none;
+    border: @arsenicGray;
+    color: #ccc;
+  }
+
+  .map-destination-button:active {
+    outline: none;
+    border: @arsenicGray;
+    color: #ccc;
+  }
+
+  .wiki-close {
+    background-color: @spaceGray;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    border-radius: 0px;
+    color: #ccc;
+  }
+
+  .wiki-close:hover {
+    background-color: @arsenicGray;
+    color: #ccc;
+  }
+
+  .wiki-close:focus {
+    outline: none;
+    border: @arsenicGray;
+    color: #ccc;
+  }
 
   // class for angular-google-map
  .angular-google-map-container {
-   display: block;
-   margin: 0 auto;
-   height: 300px;
-   width: 350px;
+   /*display: block;*/
+   /*margin: 0 auto;*/
+   margin-left: 3px;
+   margin-bottom: 0;
+   height: 305px;
+   width: 346px;
    opacity: 0.9;
  }
 
  //map input
   .location {
-    width: 270px;
-    margin-left: 9px;
+    width: 233px;
+    margin-left: 6px;
     height: 40px;
     margin-top: 3px;
     margin-right: 2px;
@@ -76,16 +589,17 @@
   }
 
   .location:focus {
-    outline: 0px;
+    outline: 0;
     border: none;;
   }
 
   //locate button
   .map-button {
     background-color: @spaceGray;
-    width: 80px;
+    width: 70px;
     height: 40px;
     border: none;
+    margin-top: 0px;
     margin-bottom: 2px;
     border-radius: 0px;
     color: #ccc;
@@ -97,18 +611,51 @@
   }
 
   .map-button:focus {
-    outline: 0px;
+    outline: none;
     border: @arsenicGray;
     color: #ccc;
   }
 
+  .map-button:active {
+    outline: none;
+    border: @arsenicGray;
+    color: #ccc;
+  }
+
+  .map-close {
+    background-color: @spaceGray;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    border-radius: 0px;
+    color: #ccc;
+  }
+
+  .map-close:hover {
+    background-color: @arsenicGray;
+    color: #ccc;
+  }
+
+  .map-close:focus {
+    outline: none;
+    border: @arsenicGray;
+    color: #ccc;
+  }
+
+  .map-close:active {
+    outline: none;
+    border: @arsenicGray;
+    color: #ccc;
+  }
 
   // new trip
 
   .new-trip {
     border-radius: 0px;
     background-color: @straw;
-    width: 90px;
+    width: 85px;
     height: 50px;
     border: 0px;
     color: @spanishGray;
@@ -122,24 +669,22 @@
     outline: 0px;
     border: 1px solid @lemonCurry;
   }
-
   // my trips
-
   .my-trips {
     border-radius: 0px;
-    width: 275px;
+    width: 260px;
     height: 50px;
-    background-color: #F28500;
+    background-color: @orange;
     border: 0px;
     color: @spanishGray;
   }
 
   .my-trips:hover {
-    background-color: #CC5500;
+    background-color: @darkOrange;
   }
 
   .my-trips:focus {
-    border: 1px solid #CC5500;
+    border: 1px solid @darkOrange;
   }
 
 // current trip
@@ -151,7 +696,7 @@
     border-radius: 0px;
     border: none;
     height: 40px;
-    width: 275px;
+    width: 263px;
     color: #ccc;
   }
 
@@ -174,7 +719,7 @@
     background-color: @avocado;
     border-radius: 0px;
     height: 40px;
-    width: 90px;
+    width: 80px;
     color: #ccc;
   }
 
@@ -193,19 +738,19 @@
   //dropdown trip menu
 
   .dropdown-menu {
-    min-width: 80px;
+    min-width: 70px;
   }
 
   .trip-menu {
       border-radius: 0px;
-      width: 275px;
+      width: 260px;
       background-color: #EFEEE8;
       color: @spanishGray;
     }
 
   .trip-items {
     color: @spanishGray;
-    width: 275px;
+    width: 260px;
     border-radius: 0px;
     text-align: left;
   }
@@ -218,14 +763,14 @@
 
   .dropdown-menu.tool-menu {
       border-radius: 0px;
-      width: 90px;
+      width: 80px;
       background-color: #EFEEE8;
       color: @spanishGray;
     }
 
   .tool-items {
-    color: @BLACK;
-    width: 90px;
+    color: @spanishGray;
+    width: 80px;
     border-radius: 0px;
     text-align: left;
   }
@@ -259,7 +804,7 @@
 
   .trip-pages {
     border-radius: 0px;
-    width: 230px;
+    width: 220px;
     height: 40px;
     background-color: @pageGreen;
     border: 0px;
@@ -280,14 +825,14 @@
 
   .pages-menu {
       border-radius: 0px;
-      width: 230px;
+      width: 220px;
       background-color: #EFEEE8;
       color: @spanishGray;
     }
 
   .pages {
     color: @spanishGray;
-    width: 230px;
+    width: 220px;
     border-radius: 0px;
     text-align: left;
   }
@@ -302,7 +847,7 @@
     background-color: @seaBlue;
     border-radius: 0px;
     height: 40px;
-    width: 60px;
+    width: 55px;
     color: #ccc;
   }
 
@@ -320,7 +865,7 @@
 
   .page-actions {
     height: 40px;
-    width: 30px;
+    width: 25px;
     background-color: @seaBlue;
     color: #ccc;
   }
@@ -337,7 +882,7 @@
 
   .pages-actions-menu {
       border-radius: 0px;
-      width: 90px;
+      width: 80px;
       background-color: #EFEEE8;
       color: @spanishGray;
     }
@@ -861,7 +1406,7 @@
     border-radius: 0px;
     width: 450px;
     height: 60px;
-    background-color: #F28500;
+    background-color: @peachyKeen;
     border: 0px;
     color: @spanishGray;
   }
@@ -986,6 +1531,8 @@
     margin-top: 5px;
     width: 810px;
     height: 40px;
+    border: @arsenicGray;
+    color: #ccc;
     background-color: @pageGreen;
     border: 0px;
     color: #ccc;
@@ -993,6 +1540,8 @@
 
   .trip-pages:hover {
     background-color: @pageHover;
+    border: @arsenicGray;
+    color: #ccc;
     color: #ccc;
   }
 
@@ -1028,7 +1577,7 @@
     background-color: @seaBlue;
     border-radius: 0px;
     height: 40px;
-    width: 127px;
+    width: 125px;
     color: #ccc;
   }
 
@@ -1065,7 +1614,7 @@
 
   .pages-actions-menu {
       border-radius: 0px;
-      width: 207px;
+      width: 205px;
       background-color: #EFEEE8;
       color: @spanishGray;
     }

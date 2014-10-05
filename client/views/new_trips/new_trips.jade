@@ -1,22 +1,35 @@
-div
-  form.form-horizontal(name='_form', ng-submit='submit(_form)')
-      .modal-header
+.new-trip
+  form.form-horizontal(name='_form', ng-submit='submit(_form)', nonvalidate)
+      .modal-header.trip-header
         button.close(type='button', ng-click='dismiss()', aria-hidden='true') ×
-        h3 Board Settings
-      .modal-body
+        h3 New Trip
+        label Title:
+        input.form-control(name='title', type='text', placeholder='Required', ng-model='form.title', required)
+        br
+        label Description:
+        input.form-control(name='description', type='text', ng-model='form.description')
+      .modal-body.trip-body
         .form-group(ng-class='{error: _form.title.$error && _form.submitted}')
-          label.control-label.col-lg-3.col-md-3 Title
           .col-lg-9.col-md-9
-            input.form-control(name='name', type='text', ng-model='form.title')
+            label Start:
+            span &nbsp
+            input.start(type='date',ng-model='date.start')
+            span &nbsp &nbsp
+            label End:
+            span &nbsp
+            input.end(type='date',ng-model='date.end')
+            br
+            br
+            br
+            label Budget:
+            span &nbsp
+            input.budget(name='budget', type='number', ng-model='form.budget')
 
-      .modal-footer
-        a.btn.btn-danger.pull-left(ng-click='remove()', tabindex='-1')
-          i.glyphicon.glyphicon-trash
-          | Delete
-        a.btn.btn-default(ng-click='dismiss()', tabindex='-1')
+
+      .modal-footer.trip-footer
+        a.btn.pull-left.btn-default.cancel(ng-click='dismiss()', tabindex='-1')
           i.glyphicon.glyphicon-remove
           | Cancel
-        button.btn.btn-primary.btn-lg(type='submit')
+        button.btn.submit-btn(ng-show='_form.$valid', type='submit')
           i.glyphicon.glyphicon-ok
           | Save
-

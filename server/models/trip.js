@@ -6,6 +6,10 @@ function Trip(o){
   this.title = o.title;
   this.userId = o.userId;
   this.isSet = (o.isSet) ? true : false;
+  this.description = o.description;
+  this.start =  (o.dates.start) ? new Date(o.dates.start) : 'No Start Date';
+  this.end = (o.dates.end) ? new Date(o.dates.end) : 'No End Date';
+  this.budget = parseInt(o.budget);
 }
 
 Object.defineProperty(Trip, 'collection', {
@@ -36,8 +40,9 @@ Trip.set = function(user, o, cb){
   var _id = Mongo.ObjectID(o.tripId);
   Trip.collection.update({userId: user._id}, {$set: {isSet: false}}, {multi: true}, function(err, trips){
     Trip.collection.update({_id:_id}, {$set: {isSet: true}}, function(err, trip){
-      console.log('this is a trip being reset>>>>>>', trip);
-     cb(null, trip);
+      require('./page').collection.update({userId: user._id}, {$set: {isSet: false}}, {multi:true}, function(err, pages){
+        cb(null, trip);
+      });
     });
   });
 };
@@ -47,7 +52,13 @@ Trip.lastTrip = function(user, cb){
   Trip.collection.findOne({userId: user._id, isSet: true}, function(err, trip){
     require('./page').collection.find({tripId: trip._id}).toArray(function(err, pages){
       console.log('getting last trip>>>>>>>>>>>>>', trip);
-      cb(err, trip, pages);
+      require('./plot').collection.find({tripId: trip._id}).toArray(function(err, plots){
+        console.log('trip Id for getting notes>>>>>>>', trip._id);
+        require('./note').collection.find({tripId: trip._id}).toArray(function(err, notes){
+          console.log('notes>>>>>>>>>>>', notes);
+          cb(err, trip, pages, plots, notes);
+        });
+      });
     });
   });
 };

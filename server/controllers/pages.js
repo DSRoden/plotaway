@@ -3,9 +3,9 @@
 var Page= require('../models/page');
 
 exports.set = function(req, res){
-  Page.set(req.user, req.body, function(err, page){
+  Page.set(req.user, req.body, function(err, page, plots){
     console.log('set page and returning it>>>>>', page);
-    res.send({page:page});
+    res.send({page:page, plots: plots});
   });
 };
 
