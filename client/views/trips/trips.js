@@ -28,11 +28,12 @@
     $scope.mainController = false;
     $scope.showEverything = false;
     $scope.showMain = false;
+    $scope.sideBar = false;
 
     //scrolling side bar
     $(function(){
 
-    var $sidebar   = $('.main-menu'),
+    var $sidebar   = $('#main-menu'),
         $window    = $(window),
         offset     = $sidebar.offset(),
         topPadding = 15;
@@ -243,6 +244,12 @@
       var index = $scope.plots.indexOf(plot);
       console.log(index);
       $scope.sum -= plot.cost;
+      for(var i = 0; i < $scope.allTripPlots.length; i++){
+        if($scope.allTripPlots[i]._id === plot._id){
+          var index2 = $scope.allTripPlots[i];
+          $scope.allTripPlots.splice(index2,1);
+        }
+      }
       Plot.remove(plot).then(function(response){
         $scope.plots.splice(index,1);
       });
@@ -392,10 +399,11 @@ $scope.makePdf = function(){
           console.log(response.data.pages);
           $scope.pages = response.data.pages;
         });
-
+      if($scope.allTripPlots){
       $scope.estimate = $scope.allTripPlots.map(function(plot){
         return plot.cost;
       });
+      }
 
       $scope.sum = $scope.estimate.reduce(function(pv, cv){return pv + cv;}, 0);
 
@@ -407,6 +415,10 @@ $scope.makePdf = function(){
     });
     };
 
+    //get recent
+    $scope.getRecent();
+
+    //add a note
     $scope.addNote = function(){
       $scope.note.tripId = $scope.trip._id;
       Note.create($scope.note).then(function(response){
@@ -454,6 +466,7 @@ $scope.makePdf = function(){
         $scope.showEverything = true;
         $scope.showTripSet = true;
         $scope.showMain = true;
+        $scope.sideBar = true;
       }
     });
 
@@ -476,8 +489,7 @@ $scope.makePdf = function(){
        $scope.trips.push($scope.lastTripAdded);
        $scope.plots = [];
        $scope.mainDashboard = false;
-       $scope.itineraries = true;
-       $scope.mainController = true;
+       $scope.sideBar = true;
      });
     };
 

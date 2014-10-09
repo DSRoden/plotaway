@@ -9,7 +9,7 @@ function Trip(o){
   this.description = o.description;
   this.start =  (o.dates.start) ? new Date(o.dates.start) : 'No Start Date';
   this.end = (o.dates.end) ? new Date(o.dates.end) : 'No End Date';
-  this.budget = parseInt(o.budget);
+  this.budget = (o.budget === null) ? 0 : parseInt(o.budget);
 }
 
 Object.defineProperty(Trip, 'collection', {
@@ -41,7 +41,7 @@ Trip.set = function(user, o, cb){
   Trip.collection.update({userId: user._id}, {$set: {isSet: false}}, {multi: true}, function(err, trips){
     Trip.collection.update({_id:_id}, {$set: {isSet: true}}, function(err, trip){
       require('./page').collection.update({userId: user._id}, {$set: {isSet: false}}, {multi:true}, function(err, pages){
-        Trip.collection.findOne({isSet: true}, function(err, setTrip){
+        Trip.collection.findOne({userId: user._id, isSet: true}, function(err, setTrip){
         console.log(trip);
         cb(null, setTrip);
         });

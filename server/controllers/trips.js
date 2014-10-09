@@ -15,6 +15,7 @@ exports.index = function(req, res){
 };
 
 exports.set = function(req, res){
+  console.log(req.user.email);
   console.log(req.body);
   Trip.set(req.user, req.body, function(err, trip){
     console.log(trip);
