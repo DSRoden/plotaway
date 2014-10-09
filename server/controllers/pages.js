@@ -15,6 +15,12 @@ exports.create = function(req, res){
   });
 };
 
+exports.remove = function(req, res){
+  Page.remove(req.params.id, function(err, page){
+    res.send({err:err});
+  });
+};
+
 //exports.index = function(req, res){
   //Trip.all(req.user, function(err, trips){
     //res.send({trips:trips});
@@ -36,12 +42,12 @@ exports.create = function(req, res){
   //});
 //};
 
-////exports.all = function(req, res){
-  ////Board.all(req.user, function(err, boards){
-    ////console.log('boards>>>>>>>>', boards);
-    ////res.send({boards:boards});
-  ////});
-////};
+exports.all = function(req, res){
+  Page.allByTripId(req.body, function(err, pages){
+    console.log('boards>>>>>>>>', pages);
+    res.send({pages:pages});
+  });
+};
 
 ////exports.findBoard = function(req, res){
   ////Board.findByIdWithPages(req.body, function(err, board, pages){

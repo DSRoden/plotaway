@@ -7,7 +7,7 @@ function Plot(o, date, time){
   this.tripId = o.tripId;
   this.pageId = o.pageId;
   this.description = o.description || 'No Description';
-  this.date  = date || new Date();
+  this.date  = date || 'No Date';
   this.time  = time || 'No Time';
   this.priority = o.priority || 'No Priority';
   this.category = o.category || 'No Category';
@@ -42,7 +42,11 @@ Plot.all = function(user, cb){
   require('./page').collection.findOne({userId: user._id, isSet:true}, function(err, page){
     console.log('this is the page associated with Plot.all>>>>>>>>', page);
     require('./trip').collection.findOne({userId: user._id, isSet:true}, function(err, trip){
+      if(page){
       Plot.collection.find({pageId: page._id}).sort({date: 1, time: 1}).toArray(cb);
+      } else {
+        cb();
+      }
     });
   });
 };

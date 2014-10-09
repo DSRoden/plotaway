@@ -19,13 +19,56 @@
     $scope.showAccordian = false;
     $scope.showWiki    = false;
     $scope.showPage    = false;
-    $scope.showTripSet    = true;
+    $scope.showTripSet    = false;
     $scope.sherpa      = {};
-    $scope.allTripPlots     = [];
+    $scope.allTripPlots   = [];
     $scope.note = {};
     $scope.notes = [];
+    $scope.itineraries = false;
+    $scope.mainController = false;
+    $scope.showEverything = false;
+    $scope.showMain = false;
+
+    //scrolling side bar
+    $(function(){
+
+    var $sidebar   = $('.main-menu'),
+        $window    = $(window),
+        offset     = $sidebar.offset(),
+        topPadding = 15;
+
+    $window.scroll(function(){
+        if ($window.scrollTop() > offset.top){
+            $sidebar.stop().animate({
+                marginTop: $window.scrollTop() - offset.top + topPadding
+            });
+        } else {
+            $sidebar.stop().animate({
+                marginTop: 0
+            });
+        }
+    });
+
+    });
 
 
+    //showing pages if they are available
+    if($scope.pages > 0){
+      $scope.pageAvailable = true;
+      }
+
+
+    //dashboard//
+    $scope.seeTrips = function(){
+      $scope.mainDashboard = false;
+      $scope.itineraries = true;
+      $scope.mainController = true;
+    };
+
+    $scope.explore - function(){
+      $scope.mainController = true;
+      $scope.showEverything = true;
+    };
 
 //////////////////////////////////////////////////////////////////////////////////////////
 ///////MAP, SHOULD BE REFACTORED TO ANOTHER CONTROLLER, ALSO NOT FLUID ENOUGH//////////
@@ -144,8 +187,6 @@
       isFirstDisabled: false
     };
 
-
-
     //show tools as they are selected
     $scope.fetchTool = function(tool){
       switch(tool){
@@ -178,7 +219,8 @@
       //$route.reload('/trips');
         Plot.all().then(function(response){
           $scope.plots = response.data.plots;
-        });
+          $scope.getRecent();
+       });
     });
   };
 
@@ -200,13 +242,16 @@
     $scope.deletePlot = function(plot){
       var index = $scope.plots.indexOf(plot);
       console.log(index);
+      $scope.sum -= plot.cost;
       Plot.remove(plot).then(function(response){
         $scope.plots.splice(index,1);
       });
     };
 
-
+///////////////////////////////////////
 //////////////PDF/////////////////////
+/////////////////////////////////////
+
 $scope.array = [['Date', 'Time', 'Category', 'Description', 'Cost', 'Priority']];
 
 $scope.convertPlots = function(){
@@ -276,17 +321,18 @@ $scope.makePdf = function(){
 ///////BEGINNING OF TRIPS AND PAGES/////////////////////
 ///////////////////////////////////////////////////////
 
-     //close
-    $scope.closeTripSet = function(){
-      $scope.showTripSet = false;
-    };
-
      //show trip settings
     $scope.tripSettings = function(){
       //$scope.showTable = false;
       $scope.showTripSet = true;
     };
 
+     //close trip info
+    $scope.closeTripSet = function(){
+      $scope.showTripSet = false;
+    };
+
+    //close page
     $scope.closePage = function(){
       $scope.showPage = false;
     };
@@ -306,6 +352,7 @@ $scope.makePdf = function(){
      // set the results of the modal form
      // to lastTripAdded and push it into trips array
      newPageModal.result.then(function(page){
+       $scope.sum += page.cost;
        $scope.lastPageAdded = page;
        $scope.pages.push($scope.lastPageAdded);
      });
@@ -335,11 +382,16 @@ $scope.makePdf = function(){
     }
 
     $scope.estimate = [];
+
+    $scope.getRecent = function(){
     Trip.getLast().then(function(response){
       $scope.trip = response.data.trip;
-      $scope.pages = response.data.pages;
       $scope.notes  = response.data.notes;
       $scope.allTripPlots = response.data.plots;
+        Page.all($scope.trip).then(function(response){
+          console.log(response.data.pages);
+          $scope.pages = response.data.pages;
+        });
 
       $scope.estimate = $scope.allTripPlots.map(function(plot){
         return plot.cost;
@@ -353,6 +405,7 @@ $scope.makePdf = function(){
         }
       }
     });
+    };
 
     $scope.addNote = function(){
       $scope.note.tripId = $scope.trip._id;
@@ -366,9 +419,11 @@ $scope.makePdf = function(){
       console.log($scope.notes);
 
 
-    //get all trips from db on intial load and subsequent loads
-    Trip.all().then(function(response){
-      $scope.trips = response.data.trips;
+
+    //get all notes
+
+    Note.all($scope.trip).then(function(response){
+      $scope.notes = response.data.notes;
     });
 
     //set and display trip one user selects from 'My Trips'
@@ -376,10 +431,31 @@ $scope.makePdf = function(){
       $scope.trip = trip;
       Trip.set($scope.trip._id).then(function(response){
         $scope.trip = response.data.trip;
-        $route.reload('/trips');
+        console.log($scope.trip);
         $scope.showMap = false;
+        Page.all($scope.trip).then(function(response){
+          console.log(response.data.pages);
+          $scope.pages = response.data.pages;
+          $scope.showPage = false;
+          $scope.page = {};
+          $scope.showTripSet = true;
+        });
+        //$route.reload('/trips');
       });
     };
+
+    //get all trips from db on intial load and subsequent loads
+    Trip.all().then(function(response){
+      $scope.trips = response.data.trips;
+      console.log($scope.trips);
+      if($scope.trips.length < 1){
+        $scope.mainDashboard = true;
+      } else {
+        $scope.showEverything = true;
+        $scope.showTripSet = true;
+        $scope.showMain = true;
+      }
+    });
 
     //initiate a modal form for creating a new trip
     $scope.newTrip = function(){
@@ -399,8 +475,26 @@ $scope.makePdf = function(){
        $scope.lastTripAdded = trip;
        $scope.trips.push($scope.lastTripAdded);
        $scope.plots = [];
+       $scope.mainDashboard = false;
+       $scope.itineraries = true;
+       $scope.mainController = true;
      });
     };
+
+    // delete page
+    $scope.delPage = function(){
+      $scope.showPage=false;
+      Page.remove($scope.page).then(function(response){
+        var index = $scope.pages.indexOf($scope.page);
+        $scope.pages.splice(index,1);
+      });
+    };
+
+     console.log($scope.trips);
+
+    //if($scope.trips.length  < 1){
+      //$scope.mainDashboard = true;
+    //}
 
   }]);
 })();

@@ -32,9 +32,103 @@
 @orange: #F28500;
 @darkOrange: #CC5500;
 
+///new/////
+
+.controller {
+  display: table;
+  margin: 0 auto;
+}
+
+
+//enter-dashboard//
+.enter-dashboard {
+  display: table;
+  margin: 100px auto;
+}
+
+.enter-dashboard {
+  text-align: center;
+}
+
+.enter-dashboard img {
+  display: table;
+  margin: 0 auto;
+  background-size: cover;
+  height: 200px;
+}
+
+.enter-dashboard h4 {
+  color: @timberwolfGray;
+}
+
+.enter-dashboard button {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: @arsenicGray;
+}
+
+.make-new {
+  background-color: @goldenYellow;
+}
+
+.make-new:hover {
+  background-color: @sandstormYellow;
+  color: white;
+}
+
+.go-explore {
+  background-color: @seaBlue;
+}
+
+.go-explore:hover {
+  background-color: @electricBlue;
+  color: white;
+}
+
+
+.login a {
+  background-color: @timberwolfGray;
+  color: @arsenicGray;
+  padding: 15px;
+  text-align: center;
+  /*position: absolute;*/
+  /*margin-left: 700px;*/
+}
+
+.login a:hover {
+  opacity: 0.8;
+  color: @arsenicGray;
+  text-decoration: none;
+}
+
+.side-bar {
+  margin-top: 20px;
+  margin-left: 90px;
+  /*position: relative;*/
+}
+.side-bar button {
+  width: 150px;
+  height: 60px;
+  border: none;
+  margin-bottom: 3px;
+}
+
 ///////////////////////////////
 //////universal settings//////
 /////////////////////////////
+
+/*.home-page {*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*width: 100%;*/
+  /*height: 1000px;*/
+  /*background-color: white;*/
+/*}*/
 
 .acc {
   background-color: @electricBlue;
@@ -96,6 +190,7 @@
   background-image: url('/img/other-01.png');
   background-size: cover;
 }
+
 
 //trip settings//
 
@@ -257,6 +352,60 @@
   color: @arsenicGray;
 }
 
+//page buttons//
+
+.pages {
+  margin-left: 10px;
+}
+
+.pages .trip-pages {
+  margin-left: 5px;
+  width: 400px;
+  height: 40px;
+  background-color: @goGreen;
+  border-radius: 0px;
+}
+
+.pages .trip-pages:hover {
+  width: 400px;
+  height: 40px;
+  background-color: @darkMossGreen;
+}
+
+.pages-menu {
+  width: 400px;
+  background-color: #EFEEE8;
+  color: @spanishGray;
+}
+
+.page-options {
+  color: @spanishGray;
+  width: 350px;
+  border-radius: 0px;
+  text-align: left;
+}
+
+.page-options:hover {
+  background-color: @timberwolfGray;
+}
+
+.new-page {
+  width: 60px;
+  height: 40px;
+}
+
+.del-page {
+  background-color: @goGreen;
+  width: 60px;
+  height: 40px;
+  border-radius: 0;
+  text-align: center;
+}
+
+.del-page:hover {
+  background-color: @darkMossGreen;
+}
+
 // itinerary & table per page//
 .itinerary {
   position: relative;
@@ -346,9 +495,7 @@ tbody {
 .photo {
   height: 200px;
   background-size: cover;
-}
-
-//////trip settings/////////////
+}//////trip settings/////////////
 /////////////////////////////////
 .trip-settings.ng-enter, .trip-settings.ng-leave {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
@@ -374,7 +521,7 @@ tbody {
 }
 
 .itinerary.ng-enter,
-.trip-settings.ng-leave.ng-leave-active {
+.itinerary.ng-leave.ng-leave-active {
   opacity:0;
 }
 
@@ -430,29 +577,6 @@ tbody {
 .map {
   margin-top: 8px;
 }
-
-
-///////////////////////////////
-///// for phone screen////////
-/////////////////////////////
-
-@media screen and (min-width: 400px) {
-
-   // main
-  .main {
-    display: block;
-    margin: 0 auto;
-  }
-
-  .main-pages {
-    display: block;
-    margin: 0 auto;
-  }
-
-  img {
-    width: 346px;
-  }
-
 
   //wiki search bar
 
@@ -650,729 +774,7 @@ tbody {
     color: #ccc;
   }
 
-  // new trip
-
-  .new-trip {
-    border-radius: 0px;
-    background-color: @straw;
-    width: 85px;
-    height: 50px;
-    border: 0px;
-    color: @spanishGray;
-  }
-
-  .new-trip:hover {
-    background-color: @lemonCurry;
-  }
-
-  .new-trip:focus {
-    outline: 0px;
-    border: 1px solid @lemonCurry;
-  }
-  // my trips
-  .my-trips {
-    border-radius: 0px;
-    width: 260px;
-    height: 50px;
-    background-color: @orange;
-    border: 0px;
-    color: @spanishGray;
-  }
-
-  .my-trips:hover {
-    background-color: @darkOrange;
-  }
-
-  .my-trips:focus {
-    border: 1px solid @darkOrange;
-  }
-
-// current trip
-
-  .current-trip {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color: @eggplantLight;
-    border-radius: 0px;
-    border: none;
-    height: 40px;
-    width: 263px;
-    color: #ccc;
-  }
-
-  .current-trip:hover {
-    background-color: @eggplant;
-    color: #ccc;
-  }
-
-  .current-trip:focus {
-    outline: 0px;
-    border: 1px solid @eggplant;
-    color: #ccc;
-  }
-
-  // tools
-
-  .tools {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color: @avocado;
-    border-radius: 0px;
-    height: 40px;
-    width: 80px;
-    color: #ccc;
-  }
-
-  .tools:hover {
-    background-color: @darkMossGreen;
-    color: #ccc;
-  }
-
-  .tools:focus {
-    border: 1px solid @darkMossGreen;;
-    color: #ccc;
-    color: #ccc;
-  }
-
-
-  //dropdown trip menu
-
-  .dropdown-menu {
-    min-width: 70px;
-  }
-
-  .trip-menu {
-      border-radius: 0px;
-      width: 260px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-
-  .trip-items {
-    color: @spanishGray;
-    width: 260px;
-    border-radius: 0px;
-    text-align: left;
-  }
-
-  .trip-items:hover {
-    background-color: #ccc;
-  }
-
-  //drop down tool menu
-
-  .dropdown-menu.tool-menu {
-      border-radius: 0px;
-      width: 80px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-
-  .tool-items {
-    color: @spanishGray;
-    width: 80px;
-    border-radius: 0px;
-    text-align: left;
-  }
-
-  .tool-items:hover {
-    background-color: #ccc;
-  }
-
-
-  // new page
-
-  .add-page {
-    border-radius: 0px;
-    background-color: @spaceGray;
-    width: 40px;
-    height: 40px;
-    border: 0px;
-    color: #ccc;
-  }
-
-  .add-page:hover {
-    background-color: @arsenicGray;
-  }
-
-  .add-page:focus {
-    outline: 0px;
-    border: 1px solid @arsenicGray;
-  }
-
-  //trip pages
-
-  .trip-pages {
-    border-radius: 0px;
-    width: 220px;
-    height: 40px;
-    background-color: @pageGreen;
-    border: 0px;
-    color: #ccc;
-  }
-
-  .trip-pages:hover {
-    background-color: @pageHover;
-    color: #ccc;
-  }
-
-  .trip-pages:focus {
-    border: 1px solid @pageHover;
-    color: #ccc;
-  }
-
-  //pages menu
-
-  .pages-menu {
-      border-radius: 0px;
-      width: 220px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-
-  .pages {
-    color: @spanishGray;
-    width: 220px;
-    border-radius: 0px;
-    text-align: left;
-  }
-
-  .pages:hover {
-    background-color: #ccc;
-  }
-
-  //page action
-  .page-action {
-    margin-bottom: 5px;
-    background-color: @seaBlue;
-    border-radius: 0px;
-    height: 40px;
-    width: 55px;
-    color: #ccc;
-  }
-
-  .page-action:hover {
-    background-color: @electricBlue;
-    color: #ccc;
-  }
-
-  .page-action:focus {
-    border: 1px solid @electricBlue;
-    color: #ccc;
-  }
-
-  //page actions toggle
-
-  .page-actions {
-    height: 40px;
-    width: 25px;
-    background-color: @seaBlue;
-    color: #ccc;
-  }
-
-  .page-actions:hover {
-    background-color: @electricBlue;
-    color: #ccc;
-  }
-  .page-actions:focus {
-    border: 1px solid @electricBlue;
-    color: #ccc;
-  }
-  //page actions menu
-
-  .pages-actions-menu {
-      border-radius: 0px;
-      width: 80px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-}
-
-//242 lines
-/////////////////////////////////////////
-// screen settings  for medium monitor//
-///////////////////////////////////////
-
-@media screen and (min-width: 680px) {
-
-  // new trip
-
-  .new-trip {
-    border-radius: 0px;
-    background-color: @straw;
-    width: 80px;
-    height: 60px;
-    border: 0px;
-    color: @spanishGray;
-  }
-
-  .new-trip:hover {
-    background-color: @lemonCurry;
-  }
-
-  .new-trip:focus {
-    outline: 0px;
-    border: 1px solid @lemonCurry;
-  }
-
-  // my trips
-
-  .my-trips {
-    border-radius: 0px;
-    width: 250px;
-    height: 60px;
-    background-color: #F28500;
-    border: 0px;
-    color: @spanishGray;
-  }
-
-  .my-trips:hover {
-    background-color: #CC5500;
-  }
-
-  .my-trips:focus {
-    border: 1px solid #CC5500;
-  }
-
-// current trip
-
-  .current-trip {
-    margin: 0;
-    background-color: @eggplantLight;
-    border-radius: 0px;
-    border: none;
-    height: 60px;
-    width: 250px;
-    color: #ccc;
-  }
-
-  .current-trip:hover {
-    background-color: @eggplant;
-  }
-
-  .current-trip:focus {
-    outline: 0px;
-    border: 1px solid @eggplant;
-  }
-
-  // tools
-
-  .tools {
-    margin: 0;
-    background-color: @avocado;
-    border-radius: 0px;
-    height: 60px;
-    width: 120px;
-    color: #ccc;
-  }
-
-  .tools:hover {
-    background-color: @darkMossGreen;
-  }
-
-  .tools:focus {
-    border: 1px solid @darkMossGreen;;
-  }
-
-  //dropdown trip menu
-
-  .dropdown-menu {
-    min-width: 80px;
-  }
-
-  .trip-menu {
-      border-radius: 0px;
-      width: 250px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-
-  .trip-items {
-    color: @spanishGray;
-    width: 250px;
-    border-radius: 0px;
-    text-align: left;
-  }
-
-  .trip-items:hover {
-    background-color: #ccc;
-  }
-
-  //drop down tool menu
-
-  .dropdown-menu.tool-menu {
-      border-radius: 0px;
-      width: 120px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-
-  .tool-items {
-    color: @BLACK;
-    width: 120px;
-    border-radius: 0px;
-    text-align: left;
-  }
-
-  .tool-items:hover {
-    background-color: #ccc;
-  }
-
-  // new page
-
-  .add-page {
-    border-radius: 0px;
-    background-color: @spaceGray;
-    margin-top: 5px;
-    width: 80px;
-    height: 50px;
-    border: 0px;
-    color: #ccc;
-  }
-
-  .add-page:hover {
-    background-color: @arsenicGray;
-  }
-
-  .add-page:focus {
-    outline: 0px;
-    border: 1px solid @arsenicGray;
-  }
-
-  //trip pages
-
-  .trip-pages {
-    border-radius: 0px;
-    margin-top: 5px;
-    width: 450px;
-    height: 50px;
-    background-color: @pageGreen;
-    border: 0px;
-    color: #ccc;
-  }
-
-  .trip-pages:hover {
-    background-color: @pageHover;
-    color: #ccc;
-  }
-
-  .trip-pages:focus {
-    border: 1px solid @pageHover;
-    color: #ccc;
-  }
-
-  //pages menu
-
-
-  .pages-menu {
-      border-radius: 0px;
-      width: 450px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-
-  .pages {
-    color: @spanishGray;
-    width: 450px;
-    border-radius: 0px;
-    text-align: left;
-  }
-
-  .pages:hover {
-    background-color: #ccc;
-  }
-
-  //page action
-  .page-action {
-    margin-top: 5px;
-    background-color: @seaBlue;
-    border-radius: 0px;
-    height: 50px;
-    width: 100px;
-    color: #ccc;
-  }
-
-  .page-action:hover {
-    background-color: @electricBlue;
-    color: #ccc;
-  }
-
-  .page-action:focus {
-    border: 1px solid @electricBlue;
-    color: #ccc;
-  }
-
-  //page actions toggle
-
-  .page-actions {
-    margin-top: 5px;
-    height: 50px;
-    width: 75px;
-    background-color: @seaBlue;
-    color: #ccc;
-  }
-
-  .page-actions:hover {
-    background-color: @electricBlue;
-    color: #ccc;
-  }
-  .page-actions:focus {
-    border: 1px solid @electricBlue;
-    color: #ccc;
-  }
-
-  //page actions menu
-
-  .pages-actions-menu {
-      border-radius: 0px;
-      width: 175px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-}
-
-
-////////////////////////////////////////
-// screen settings for ipad landscape monitor//
-//////////////////////////////////////
-
-@media screen and (min-width: 1010px) {
-
-  // new trip
-
-  .new-trip {
-    border-radius: 0px;
-    background-color: @straw;
-    width: 100px;
-    height: 60px;
-    border: 0px;
-    color: @spanishGray;
-  }
-
-  .new-trip:hover {
-    background-color: @lemonCurry;
-  }
-
-  .new-trip:focus {
-    outline: 0px;
-    border: 1px solid @lemonCurry;
-  }
-
-  // my trips
-
-  .my-trips {
-    border-radius: 0px;
-    width: 350px;
-    height: 60px;
-    background-color: #F28500;
-    border: 0px;
-    color: @spanishGray;
-  }
-
-  .my-trips:hover {
-    background-color: #CC5500;
-  }
-
-  .my-trips:focus {
-    border: 1px solid #CC5500;
-  }
-
-// current trip
-
-  .current-trip {
-    margin: 0;
-    background-color: @eggplantLight;
-    border-radius: 0px;
-    border: none;
-    height: 60px;
-    width: 350px;
-    color: #ccc;
-  }
-
-  .current-trip:hover {
-    background-color: @eggplant;
-  }
-
-  .current-trip:focus {
-    outline: 0px;
-    border: 1px solid @eggplant;
-  }
-
-  // tools
-
-  .tools {
-    margin: 0;
-    background-color: @avocado;
-    border-radius: 0px;
-    height: 60px;
-    width: 110px;
-    color: #ccc;
-  }
-
-  .tools:hover {
-    background-color: @darkMossGreen;
-  }
-
-  .tools:focus {
-    border: 1px solid @darkMossGreen;;
-  }
-
-  //dropdown trip menu
-
-  .dropdown-menu {
-    min-width: 80px;
-  }
-
-  .trip-menu {
-      border-radius: 0px;
-      width: 350px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-
-  .trip-items {
-    color: @spanishGray;
-    width: 350px;
-    border-radius: 0px;
-    text-align: left;
-  }
-
-  .trip-items:hover {
-    background-color: #ccc;
-  }
-
-  //drop down tool menu
-
-  .dropdown-menu.tool-menu {
-      border-radius: 0px;
-      width: 110px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-
-  .tool-items {
-    color: @BLACK;
-    width: 110px;
-    border-radius: 0px;
-    text-align: left;
-  }
-
-  .tool-items:hover {
-    background-color: #ccc;
-  }
-
-  // new page
-
-  .add-page {
-    border-radius: 0px;
-    background-color: @spaceGray;
-    margin-top: 5px;
-    width: 100px;
-    height: 50px;
-    border: 0px;
-    color: #ccc;
-  }
-
-  .add-page:hover {
-    background-color: @arsenicGray;
-  }
-
-  .add-page:focus {
-    outline: 0px;
-    border: 1px solid @arsenicGray;
-  }
-
-  //trip pages
-
-  .trip-pages {
-    border-radius: 0px;
-    margin-top: 5px;
-    width: 600px;
-    height: 50px;
-    background-color: @pageGreen;
-    border: 0px;
-    color: #ccc;
-  }
-
-  .trip-pages:hover {
-    background-color: @pageHover;
-    color: #ccc;
-  }
-
-  .trip-pages:focus {
-    border: 1px solid @pageHover;
-    color: #ccc;
-  }
-
-  //pages menu
-
-
-  .pages-menu {
-      border-radius: 0px;
-      width: 600px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-
-  .pages {
-    color: @spanishGray;
-    width: 600px;
-    border-radius: 0px;
-    text-align: left;
-  }
-
-  .pages:hover {
-    background-color: #ccc;
-  }
-
-  //page action
-  .page-action {
-    margin-top: 5px;
-    background-color: @seaBlue;
-    border-radius: 0px;
-    height: 50px;
-    width: 137px;
-    color: #ccc;
-  }
-
-  .page-action:hover {
-    background-color: @electricBlue;
-    color: #ccc;
-  }
-
-  .page-action:focus {
-    border: 1px solid @electricBlue;
-    color: #ccc;
-  }
-
-  //page actions toggle
-
-  .page-actions {
-    margin-top: 5px;
-    height: 50px;
-    width: 80px;
-    background-color: @seaBlue;
-    color: #ccc;
-  }
-
-  .page-actions:hover {
-    background-color: @electricBlue;
-    color: #ccc;
-  }
-  .page-actions:focus {
-    border: 1px solid @electricBlue;
-    color: #ccc;
-  }
-
-  //page actions menu
-
-  .pages-actions-menu {
-      border-radius: 0px;
-      width: 217px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-}
+/*
 
 ////////////////////////////////////////
 // screen settings for larger monitor//
@@ -1620,3 +1022,944 @@ tbody {
     }
 }
 
+/*///////////////////////////////*/
+/*///// for phone screen////////*/
+/*/////////////////////////////*/
+
+/*@media screen and (min-width: 400px) {*/
+
+   /*// main*/
+  /*.main {*/
+    /*display: block;*/
+    /*margin: 0 auto;*/
+  /*}*/
+
+  /*.main-pages {*/
+    /*display: block;*/
+    /*margin: 0 auto;*/
+  /*}*/
+
+  /*img {*/
+    /*width: 346px;*/
+  /*}*/
+
+
+  /*//wiki search bar*/
+
+  /*h5 {*/
+    /*margin-left: 5px;*/
+    /*background-color: #ccc;*/
+    /*text-align: center;*/
+    /*padding: 2px;*/
+    /*margin-top: 3px;*/
+    /*margin-bottom: 0;*/
+    /*width: 347px;*/
+    /*color: @arsenicGray;*/
+    /*opacity: 0.9;*/
+  /*}*/
+
+  /*.destination {*/
+    /*width: 200px;*/
+    /*height: 40px;*/
+    /*background-color: #ccc;*/
+    /*margin-top: 3px;*/
+    /*margin-bottom: 2px;*/
+    /*margin-left: 5px;*/
+    /*margin-right: 2px;*/
+    /*opacity: 1;*/
+    /*border: none;*/
+    /*color: @arsenicGray;*/
+  /*}*/
+
+  /*.destination:focus {*/
+    /*outline: 0;*/
+    /*border: none;*/
+  /*}*/
+
+  /*.wiki-button {*/
+    /*background-color: @spaceGray;*/
+    /*width: 55px;*/
+    /*height: 40px;*/
+    /*border: none;*/
+    /*margin-top: 0px;*/
+    /*margin-bottom: 3px;*/
+    /*border-radius: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+  /*.wiki-button:hover {*/
+    /*background-color: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.wiki-button:focus {*/
+    /*outline: none;*/
+    /*border: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.wiki-button:active {*/
+    /*outline: none;*/
+    /*border: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-destination-button {*/
+    /*background-color: @spaceGray;*/
+    /*width: 50px;*/
+    /*height: 40px;*/
+    /*border: none;*/
+    /*margin-top: 0px;*/
+    /*margin-bottom: 3px;*/
+    /*border-radius: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-destination-button:hover {*/
+    /*background-color: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-destination-button:focus {*/
+    /*outline: none;*/
+    /*border: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-destination-button:active {*/
+    /*outline: none;*/
+    /*border: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.wiki-close {*/
+    /*background-color: @spaceGray;*/
+    /*width: 40px;*/
+    /*height: 40px;*/
+    /*border: none;*/
+    /*margin-top: 0px;*/
+    /*margin-bottom: 2px;*/
+    /*border-radius: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.wiki-close:hover {*/
+    /*background-color: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.wiki-close:focus {*/
+    /*outline: none;*/
+    /*border: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*// class for angular-google-map*/
+ /*.angular-google-map-container {*/
+   /*[>display: block;<]*/
+   /*[>margin: 0 auto;<]*/
+   /*margin-left: 3px;*/
+   /*margin-bottom: 0;*/
+   /*height: 305px;*/
+   /*width: 346px;*/
+   /*opacity: 0.9;*/
+ /*}*/
+
+ /*//map input*/
+  /*.location {*/
+    /*width: 233px;*/
+    /*margin-left: 6px;*/
+    /*height: 40px;*/
+    /*margin-top: 3px;*/
+    /*margin-right: 2px;*/
+    /*margin-bottom: 2px;*/
+    /*background-color: #ccc;*/
+    /*opacity: 1;*/
+    /*border: none;*/
+    /*color: @arsenicGray;*/
+  /*}*/
+
+  /*.location:focus {*/
+    /*outline: 0;*/
+    /*border: none;;*/
+  /*}*/
+
+  /*//locate button*/
+  /*.map-button {*/
+    /*background-color: @spaceGray;*/
+    /*width: 70px;*/
+    /*height: 40px;*/
+    /*border: none;*/
+    /*margin-top: 0px;*/
+    /*margin-bottom: 2px;*/
+    /*border-radius: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-button:hover {*/
+    /*background-color: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-button:focus {*/
+    /*outline: none;*/
+    /*border: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-button:active {*/
+    /*outline: none;*/
+    /*border: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-close {*/
+    /*background-color: @spaceGray;*/
+    /*width: 40px;*/
+    /*height: 40px;*/
+    /*border: none;*/
+    /*margin-top: 0px;*/
+    /*margin-bottom: 2px;*/
+    /*border-radius: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-close:hover {*/
+    /*background-color: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-close:focus {*/
+    /*outline: none;*/
+    /*border: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.map-close:active {*/
+    /*outline: none;*/
+    /*border: @arsenicGray;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*// new trip*/
+
+  /*.new-trip {*/
+    /*border-radius: 0px;*/
+    /*background-color: @straw;*/
+    /*width: 85px;*/
+    /*height: 50px;*/
+    /*border: 0px;*/
+    /*color: @spanishGray;*/
+  /*}*/
+
+  /*.new-trip:hover {*/
+    /*background-color: @lemonCurry;*/
+  /*}*/
+
+  /*.new-trip:focus {*/
+    /*outline: 0px;*/
+    /*border: 1px solid @lemonCurry;*/
+  /*}*/
+  /*// my trips*/
+  /*.my-trips {*/
+    /*border-radius: 0px;*/
+    /*width: 260px;*/
+    /*height: 50px;*/
+    /*background-color: @orange;*/
+    /*border: 0px;*/
+    /*color: @spanishGray;*/
+  /*}*/
+
+  /*.my-trips:hover {*/
+    /*background-color: @darkOrange;*/
+  /*}*/
+
+  /*.my-trips:focus {*/
+    /*border: 1px solid @darkOrange;*/
+  /*}*/
+
+/*// current trip*/
+
+  /*.current-trip {*/
+    /*margin-top: 5px;*/
+    /*margin-bottom: 5px;*/
+    /*background-color: @eggplantLight;*/
+    /*border-radius: 0px;*/
+    /*border: none;*/
+    /*height: 40px;*/
+    /*width: 263px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.current-trip:hover {*/
+    /*background-color: @eggplant;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.current-trip:focus {*/
+    /*outline: 0px;*/
+    /*border: 1px solid @eggplant;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*// tools*/
+
+  /*.tools {*/
+    /*margin-top: 5px;*/
+    /*margin-bottom: 5px;*/
+    /*background-color: @avocado;*/
+    /*border-radius: 0px;*/
+    /*height: 40px;*/
+    /*width: 80px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.tools:hover {*/
+    /*background-color: @darkMossGreen;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.tools:focus {*/
+    /*border: 1px solid @darkMossGreen;;*/
+    /*color: #ccc;*/
+    /*color: #ccc;*/
+  /*}*/
+
+
+  /*//dropdown trip menu*/
+
+  /*.dropdown-menu {*/
+    /*min-width: 70px;*/
+  /*}*/
+
+  /*.trip-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 260px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+
+  /*.trip-items {*/
+    /*color: @spanishGray;*/
+    /*width: 260px;*/
+    /*border-radius: 0px;*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*.trip-items:hover {*/
+    /*background-color: #ccc;*/
+  /*}*/
+
+  /*//drop down tool menu*/
+
+  /*.dropdown-menu.tool-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 80px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+
+  /*.tool-items {*/
+    /*color: @spanishGray;*/
+    /*width: 80px;*/
+    /*border-radius: 0px;*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*.tool-items:hover {*/
+    /*background-color: #ccc;*/
+  /*}*/
+
+
+  /*// new page*/
+
+  /*.add-page {*/
+    /*border-radius: 0px;*/
+    /*background-color: @spaceGray;*/
+    /*width: 40px;*/
+    /*height: 40px;*/
+    /*border: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.add-page:hover {*/
+    /*background-color: @arsenicGray;*/
+  /*}*/
+
+  /*.add-page:focus {*/
+    /*outline: 0px;*/
+    /*border: 1px solid @arsenicGray;*/
+  /*}*/
+
+  /*//trip pages*/
+
+  /*.trip-pages {*/
+    /*border-radius: 0px;*/
+    /*width: 220px;*/
+    /*height: 40px;*/
+    /*background-color: @pageGreen;*/
+    /*border: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.trip-pages:hover {*/
+    /*background-color: @pageHover;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.trip-pages:focus {*/
+    /*border: 1px solid @pageHover;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*//pages menu*/
+
+  /*.pages-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 220px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+
+  /*.pages {*/
+    /*color: @spanishGray;*/
+    /*width: 220px;*/
+    /*border-radius: 0px;*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*.pages:hover {*/
+    /*background-color: #ccc;*/
+  /*}*/
+
+  /*//page action*/
+  /*.page-action {*/
+    /*margin-bottom: 5px;*/
+    /*background-color: @seaBlue;*/
+    /*border-radius: 0px;*/
+    /*height: 40px;*/
+    /*width: 55px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.page-action:hover {*/
+    /*background-color: @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.page-action:focus {*/
+    /*border: 1px solid @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*//page actions toggle*/
+
+  /*.page-actions {*/
+    /*height: 40px;*/
+    /*width: 25px;*/
+    /*background-color: @seaBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.page-actions:hover {*/
+    /*background-color: @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+  /*.page-actions:focus {*/
+    /*border: 1px solid @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+  /*//page actions menu*/
+
+  /*.pages-actions-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 80px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+/*}*/
+
+/*//242 lines*/
+/*/////////////////////////////////////////*/
+/*// screen settings  for medium monitor//*/
+/*///////////////////////////////////////*/
+
+/*@media screen and (min-width: 680px) {*/
+
+  /*// new trip*/
+
+  /*.new-trip {*/
+    /*border-radius: 0px;*/
+    /*background-color: @straw;*/
+    /*width: 80px;*/
+    /*height: 60px;*/
+    /*border: 0px;*/
+    /*color: @spanishGray;*/
+  /*}*/
+
+  /*.new-trip:hover {*/
+    /*background-color: @lemonCurry;*/
+  /*}*/
+
+  /*.new-trip:focus {*/
+    /*outline: 0px;*/
+    /*border: 1px solid @lemonCurry;*/
+  /*}*/
+
+  /*// my trips*/
+
+  /*.my-trips {*/
+    /*border-radius: 0px;*/
+    /*width: 250px;*/
+    /*height: 60px;*/
+    /*background-color: #F28500;*/
+    /*border: 0px;*/
+    /*color: @spanishGray;*/
+  /*}*/
+
+  /*.my-trips:hover {*/
+    /*background-color: #CC5500;*/
+  /*}*/
+
+  /*.my-trips:focus {*/
+    /*border: 1px solid #CC5500;*/
+  /*}*/
+
+/*// current trip*/
+
+  /*.current-trip {*/
+    /*margin: 0;*/
+    /*background-color: @eggplantLight;*/
+    /*border-radius: 0px;*/
+    /*border: none;*/
+    /*height: 60px;*/
+    /*width: 250px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.current-trip:hover {*/
+    /*background-color: @eggplant;*/
+  /*}*/
+
+  /*.current-trip:focus {*/
+    /*outline: 0px;*/
+    /*border: 1px solid @eggplant;*/
+  /*}*/
+
+  /*// tools*/
+
+  /*.tools {*/
+    /*margin: 0;*/
+    /*background-color: @avocado;*/
+    /*border-radius: 0px;*/
+    /*height: 60px;*/
+    /*width: 120px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.tools:hover {*/
+    /*background-color: @darkMossGreen;*/
+  /*}*/
+
+  /*.tools:focus {*/
+    /*border: 1px solid @darkMossGreen;;*/
+  /*}*/
+
+  /*//dropdown trip menu*/
+
+  /*.dropdown-menu {*/
+    /*min-width: 80px;*/
+  /*}*/
+
+  /*.trip-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 250px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+
+  /*.trip-items {*/
+    /*color: @spanishGray;*/
+    /*width: 250px;*/
+    /*border-radius: 0px;*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*.trip-items:hover {*/
+    /*background-color: #ccc;*/
+  /*}*/
+
+  /*//drop down tool menu*/
+
+  /*.dropdown-menu.tool-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 120px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+
+  /*.tool-items {*/
+    /*color: @BLACK;*/
+    /*width: 120px;*/
+    /*border-radius: 0px;*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*.tool-items:hover {*/
+    /*background-color: #ccc;*/
+  /*}*/
+
+  /*// new page*/
+
+  /*.add-page {*/
+    /*border-radius: 0px;*/
+    /*background-color: @spaceGray;*/
+    /*margin-top: 5px;*/
+    /*width: 80px;*/
+    /*height: 50px;*/
+    /*border: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.add-page:hover {*/
+    /*background-color: @arsenicGray;*/
+  /*}*/
+
+  /*.add-page:focus {*/
+    /*outline: 0px;*/
+    /*border: 1px solid @arsenicGray;*/
+  /*}*/
+
+  /*//trip pages*/
+
+  /*.trip-pages {*/
+    /*border-radius: 0px;*/
+    /*margin-top: 5px;*/
+    /*width: 450px;*/
+    /*height: 50px;*/
+    /*background-color: @pageGreen;*/
+    /*border: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.trip-pages:hover {*/
+    /*background-color: @pageHover;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.trip-pages:focus {*/
+    /*border: 1px solid @pageHover;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*//pages menu*/
+
+
+  /*.pages-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 450px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+
+  /*.pages {*/
+    /*color: @spanishGray;*/
+    /*width: 450px;*/
+    /*border-radius: 0px;*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*.pages:hover {*/
+    /*background-color: #ccc;*/
+  /*}*/
+
+  /*//page action*/
+  /*.page-action {*/
+    /*margin-top: 5px;*/
+    /*background-color: @seaBlue;*/
+    /*border-radius: 0px;*/
+    /*height: 50px;*/
+    /*width: 100px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.page-action:hover {*/
+    /*background-color: @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.page-action:focus {*/
+    /*border: 1px solid @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*//page actions toggle*/
+
+  /*.page-actions {*/
+    /*margin-top: 5px;*/
+    /*height: 50px;*/
+    /*width: 75px;*/
+    /*background-color: @seaBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.page-actions:hover {*/
+    /*background-color: @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+  /*.page-actions:focus {*/
+    /*border: 1px solid @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*//page actions menu*/
+
+  /*.pages-actions-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 175px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+/*}*/
+
+
+/*////////////////////////////////////////*/
+/*// screen settings for ipad landscape monitor//*/
+/*//////////////////////////////////////*/
+
+/*@media screen and (min-width: 1010px) {*/
+
+  /*// new trip*/
+
+  /*.new-trip {*/
+    /*border-radius: 0px;*/
+    /*background-color: @straw;*/
+    /*width: 100px;*/
+    /*height: 60px;*/
+    /*border: 0px;*/
+    /*color: @spanishGray;*/
+  /*}*/
+
+  /*.new-trip:hover {*/
+    /*background-color: @lemonCurry;*/
+  /*}*/
+
+  /*.new-trip:focus {*/
+    /*outline: 0px;*/
+    /*border: 1px solid @lemonCurry;*/
+  /*}*/
+
+  /*// my trips*/
+
+  /*.my-trips {*/
+    /*border-radius: 0px;*/
+    /*width: 350px;*/
+    /*height: 60px;*/
+    /*background-color: #F28500;*/
+    /*border: 0px;*/
+    /*color: @spanishGray;*/
+  /*}*/
+
+  /*.my-trips:hover {*/
+    /*background-color: #CC5500;*/
+  /*}*/
+
+  /*.my-trips:focus {*/
+    /*border: 1px solid #CC5500;*/
+  /*}*/
+
+/*// current trip*/
+
+  /*.current-trip {*/
+    /*margin: 0;*/
+    /*background-color: @eggplantLight;*/
+    /*border-radius: 0px;*/
+    /*border: none;*/
+    /*height: 60px;*/
+    /*width: 350px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.current-trip:hover {*/
+    /*background-color: @eggplant;*/
+  /*}*/
+
+  /*.current-trip:focus {*/
+    /*outline: 0px;*/
+    /*border: 1px solid @eggplant;*/
+  /*}*/
+
+  /*// tools*/
+
+  /*.tools {*/
+    /*margin: 0;*/
+    /*background-color: @avocado;*/
+    /*border-radius: 0px;*/
+    /*height: 60px;*/
+    /*width: 110px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.tools:hover {*/
+    /*background-color: @darkMossGreen;*/
+  /*}*/
+
+  /*.tools:focus {*/
+    /*border: 1px solid @darkMossGreen;;*/
+  /*}*/
+
+  /*//dropdown trip menu*/
+
+  /*.dropdown-menu {*/
+    /*min-width: 80px;*/
+  /*}*/
+
+  /*.trip-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 350px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+
+  /*.trip-items {*/
+    /*color: @spanishGray;*/
+    /*width: 350px;*/
+    /*border-radius: 0px;*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*.trip-items:hover {*/
+    /*background-color: #ccc;*/
+  /*}*/
+
+  /*//drop down tool menu*/
+
+  /*.dropdown-menu.tool-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 110px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+
+  /*.tool-items {*/
+    /*color: @BLACK;*/
+    /*width: 110px;*/
+    /*border-radius: 0px;*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*.tool-items:hover {*/
+    /*background-color: #ccc;*/
+  /*}*/
+
+  /*// new page*/
+
+  /*.add-page {*/
+    /*border-radius: 0px;*/
+    /*background-color: @spaceGray;*/
+    /*margin-top: 5px;*/
+    /*width: 100px;*/
+    /*height: 50px;*/
+    /*border: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.add-page:hover {*/
+    /*background-color: @arsenicGray;*/
+  /*}*/
+
+  /*.add-page:focus {*/
+    /*outline: 0px;*/
+    /*border: 1px solid @arsenicGray;*/
+  /*}*/
+
+  /*//trip pages*/
+
+  /*.trip-pages {*/
+    /*border-radius: 0px;*/
+    /*margin-top: 5px;*/
+    /*width: 600px;*/
+    /*height: 50px;*/
+    /*background-color: @pageGreen;*/
+    /*border: 0px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.trip-pages:hover {*/
+    /*background-color: @pageHover;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.trip-pages:focus {*/
+    /*border: 1px solid @pageHover;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*//pages menu*/
+
+
+  /*.pages-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 600px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+
+  /*.pages {*/
+    /*color: @spanishGray;*/
+    /*width: 600px;*/
+    /*border-radius: 0px;*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*.pages:hover {*/
+    /*background-color: #ccc;*/
+  /*}*/
+
+  /*//page action*/
+  /*.page-action {*/
+    /*margin-top: 5px;*/
+    /*background-color: @seaBlue;*/
+    /*border-radius: 0px;*/
+    /*height: 50px;*/
+    /*width: 137px;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.page-action:hover {*/
+    /*background-color: @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.page-action:focus {*/
+    /*border: 1px solid @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*//page actions toggle*/
+
+  /*.page-actions {*/
+    /*margin-top: 5px;*/
+    /*height: 50px;*/
+    /*width: 80px;*/
+    /*background-color: @seaBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*.page-actions:hover {*/
+    /*background-color: @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+  /*.page-actions:focus {*/
+    /*border: 1px solid @electricBlue;*/
+    /*color: #ccc;*/
+  /*}*/
+
+  /*//page actions menu*/
+
+  /*.pages-actions-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 217px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+/*}*/

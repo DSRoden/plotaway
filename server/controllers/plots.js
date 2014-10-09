@@ -10,8 +10,13 @@ exports.create = function(req, res){
 
 exports.all = function(req, res){
   Plot.all(req.user, function(err, plots){
+    if(!plots){
+    res.status(200);
+    res.end();
+    } else{
     console.log(plots);
     res.send({plots:plots});
+    }
   });
 };
 

@@ -4,7 +4,7 @@
 
 function Note(o){
   this.userId = o.userId;
-  this.tripId = o.tripId;
+  this.tripId = Mongo.ObjectID(o.tripId);
   this.info =  o.info;
   this.date = new Date();
 }
@@ -26,6 +26,11 @@ Note.create = function(user, note, cb){
   o.date = new Date();
   var newNote = new Note(o);
   Note.collection.save(newNote, cb);
+};
+
+Note.all = function(user, tripId, cb){
+  var id = Mongo.ObjectID(tripId);
+    Note.collection.find({tripId: id}).toArray(cb);
 };
 
 module.exports = Note;

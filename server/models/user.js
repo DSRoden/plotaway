@@ -20,12 +20,12 @@ User.register = function(o, cb){
     if(user || o.password.length < 3){return cb();}
     o.password = bcrypt.hashSync(o.password, 10);
     User.collection.save(o, function(err, user){
-      var o = {title: 'First Trip!', isSet: true, description: 'Start plotting!', budget: '2000'},
-       date = {start: '01/01/2015', end: '02/02/2015'};
-      o.dates = date;
-      require('./trip').create(user, o, function(err, trip){
+      //var o = {title: 'First Trip!', isSet: true, description: 'Start plotting!', budget: '2000'},
+       //date = {start: '01/01/2015', end: '02/02/2015'};
+      //o.dates = date;
+      //require('./trip').create(user, o, function(err, trip){
         cb(err, user);
-      });
+      //});
     });
   });
 };

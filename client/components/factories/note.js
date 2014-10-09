@@ -9,8 +9,8 @@
       return $http.post('/notes', note);
     }
 
-    function all(){
-      return $http.get('/notes');
+    function all(trip){
+      return $http.get('/notes/' + trip._id);
     }
 
     function remove(note){

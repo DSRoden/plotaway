@@ -36,7 +36,7 @@ module.exports = function(app, express){
   app.post('/newboard', boards.create);
   app.get('/boards', boards.all);
   app.post('/board', boards.findBoard);
-  //app.post('/pages', pages.all);
+  app.post('/pages', pages.all);
   app.post('/setpage', pages.set);
 
   app.post('/newtrip', trips.create);
@@ -44,11 +44,13 @@ module.exports = function(app, express){
   app.post('/settrip', trips.set);
   app.get('/lasttrip', trips.last);
   app.post('/newpage', pages.create);
+  app.delete('/removepage/:id', pages.remove);
   app.post('/plots', plots.create);
   app.get('/plots', plots.all);
   //app.get('/tripplots', plots.allPlots);
   app.delete('/removeplot/:id', plots.remove);
   app.post('/notes',  notes.create);
+  app.post('/notes/:id',  notes.all);
 
   app.post('/destination', sherpas.findDestination);
 

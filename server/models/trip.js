@@ -25,10 +25,10 @@ Trip.create = function(user, o, cb){
   o.userId = user._id;
   var trip = new Trip(o);
   Trip.collection.save(trip, function(err, trip){
-    var p = {title: 'First Page', isSet: true, tripId: trip._id};
-    require('./page').create(user, p, function(err, page){
+    //var p = {title: 'First Page', isSet: true, tripId: trip._id};
+    //require('./page').create(user, p, function(err, page){
       cb(err, trip);
-    });
+    //});
   });
 };
 
@@ -41,7 +41,10 @@ Trip.set = function(user, o, cb){
   Trip.collection.update({userId: user._id}, {$set: {isSet: false}}, {multi: true}, function(err, trips){
     Trip.collection.update({_id:_id}, {$set: {isSet: true}}, function(err, trip){
       require('./page').collection.update({userId: user._id}, {$set: {isSet: false}}, {multi:true}, function(err, pages){
-        cb(null, trip);
+        Trip.collection.findOne({isSet: true}, function(err, setTrip){
+        console.log(trip);
+        cb(null, setTrip);
+        });
       });
     });
   });
@@ -50,6 +53,7 @@ Trip.set = function(user, o, cb){
 Trip.lastTrip = function(user, cb){
   console.log('inside last trip>>>>>>>>>>>', user);
   Trip.collection.findOne({userId: user._id, isSet: true}, function(err, trip){
+    if(trip){
     require('./page').collection.find({tripId: trip._id}).toArray(function(err, pages){
       console.log('getting last trip>>>>>>>>>>>>>', trip);
       require('./plot').collection.find({tripId: trip._id}).toArray(function(err, plots){
@@ -60,6 +64,9 @@ Trip.lastTrip = function(user, cb){
         });
       });
     });
+   } else {
+    cb();
+   }
   });
 };
 

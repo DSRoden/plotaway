@@ -33,6 +33,11 @@ Page.all = function(user, cb){
   Page.collection.find({userId:user._id}).toArray(cb);
 };
 
+Page.allByTripId = function(trip, cb){
+  var id = Mongo.ObjectID(trip._id);
+  Page.collection.find({tripId: id}).toArray(cb);
+};
+
 //Page.set = function(user, o, cb){
   //console.log(user);
   //console.log('the id of the page>>>>>>', o.page);
@@ -65,5 +70,14 @@ Page.lastPage = function(user, cb){
     cb(err, page);
   });
 };
+
+Page.remove = function(id, cb){
+  console.log(id);
+  id = Mongo.ObjectID(id);
+  require('./plot').collection.remove({pageId:id}, function(err, something){
+    Page.collection.remove({_id:id}, cb);
+  });
+};
+
 module.exports = Page;
 

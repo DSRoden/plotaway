@@ -8,15 +8,19 @@
       return $http.post('/newpage', page);
     }
 
-    function all(currentBoard){
-      return $http.post('/pages', currentBoard);
+    function all(trip){
+      return $http.post('/pages', trip);
     }
 
     function set(page){
       return $http.post('/setpage', {page:page});
     }
 
-    return {create:create, all:all, set:set};
+    function remove(page){
+      return $http.delete('/removepage/' + page._id);
+    }
+
+    return {create:create, all:all, set:set, remove:remove};
   }]);
 })();
 
