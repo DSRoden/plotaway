@@ -70,5 +70,14 @@ Trip.lastTrip = function(user, cb){
   });
 };
 
+Trip.remove = function(id, cb){
+  var _id = Mongo.ObjectID(id);
+  require('./page').collection.remove({tripId: _id}, function(err, something){
+    require('./plot').collection.remove({tripId: _id}, function(err, something2){
+      Trip.collection.remove({_id: _id}, cb);
+    });
+  });
+};
+
 module.exports = Trip;
 

@@ -3,20 +3,31 @@
     .col-xs-2.col-md-2
       .btn-toolbar#main-menu(ng-if='showMain')
         .btn-group
-          button.current-trip(ng-click='tripSettings()') {{trip.title}}
+          button.current-trip(ng-if='showTripSet',ng-click='tripSettings()') Recent Trip
             //-span Last Itinerary: {{trip.title.charAt(0).toUpperCase() + trip.title.slice(1)}}
             span &nbsp
             span.glyphicon.glyphicon-cog
+        .btn-group(ng-if='showPagesBar',dropdown='dropdown', is-open='status.isopen')
+          button.trip-pages.dropdown-toggle(type='button', ng-disabled='disabled')
+            | Pages
+            span.caret
+          ul.dropdown-menu.pages-menu
+            li(ng-repeat='page in pages')
+              .btn.page-options(ng-click='setPage(page)') {{page.title}}
         .btn-group
-          button.new-plot-btn(ng-click='newPlot()')
+          button.new-page(ng-click='newPage()')
+            | New
+            span &nbsp
+        .btn-group
+          button.new-plot-btn(ng-if="showPlot", ng-click='newPlot()')
             | Plot
             span &nbsp
             i.glyphicon.glyphicon-th-large
-        .btn-group
-          button.new-note-btn(ng-click='newNote()')
-            | Note
-            span &nbsp
-            i.glyphicon.glyphicon-plus
+        //-.btn-group
+          //-button.new-note-btn(ng-click='newNote()')
+            //-| Note
+            //-span &nbsp
+            //-i.glyphicon.glyphicon-plus
         .btn-group
           button.explore-btn(ng-click='explore()')
             | Explore
@@ -29,7 +40,7 @@
             span.caret
           ul.dropdown-menu.trip-menu
             li(ng-repeat='trip in trips')
-              .btn.trip-items(ng-click='setTrip(trip)') {{trip.title}}
+              .btn.trip-items(ng-click='setTrip(trip)') {{trip.title.charAt(0).toUpperCase() + trip.title.slice(1)}}
         .btn-group
           button.new-trip(ng-click='newTrip()')
             | Trip
@@ -37,29 +48,31 @@
             i.glyphicon.glyphicon-plus
 
     .col-xs-8.col-md-8
-      .pages
-        .btn-group(dropdown='dropdown', is-open='status.isopen')
-         .btn.trip-pages.dropdown-toggle(type='button', ng-disabled='disabled')
-            | Pages
-            span.caret
-          ul.dropdown-menu.pages-menu
-            li(ng-repeat='page in pages')
-              .btn.page-options(ng-click='setPage(page)') {{page.title}}
-        .btn-group
-          .btn.new-page(ng-click='newPage()')
-            | New
-            span &nbsp
-        .btn-group
-          .btn.del-page(ng-click='delPage()')
-            | Delete
-            span &nbsp
-
+      .explore-page(ng-if='goExplore')
+      .exploration(ng-if="showMap")
+        input.location(type='text', ng-model='city.name', googleplace='googleplace')
+        .btn.map-button(ng-click='mapLocation()') Map
+        .btn.map-close(ng-click='closeMap()')
+          i.glyphicon.glyphicon-remove
+        .angular-google-map-container(ng-if='showMap', google-map, draggable='true', center='map.center', zoom='map.zoom', refresh='map.refresh', pan='1', options='options')
+          .marker(marker, coords='marker.coords', options='marker.options', events='marker.events', idkey='marker.id')
+      .wiki-info(ng-if='showAccordian')
+        img(ng-src='{{sherpa.images[0].secondUrl}}')
+        accordion(close-others='oneAtATime')
+          accordion-group(is-open='status.isFirstOpen', is-disabled='status.isFirstDisabled')
+            accordion-heading
+              | Information about {{destination.point}}
+            a(href='{{sherpa.link}}' target='_blank') WikiVoyage link to {{destination.point}}
+              //-iframe#iframe(ng-src='{{sherpa.link}}', width='100%', height='300', frameborder='0')
     .col-xs-8.col-md-8
+      .no-trips(ng-if="notTrips")
+      .no-set-trip(ng-if="noSetTrip")
       .main-body
         .trip-settings(ng-if="showTripSet")
           .trip-title
             h5 {{trip.title}}
           .btn-group(dropdown='dropdown', is-open='status.isopen')
+          .pdf-all(ng-click='tripPdf()') Download as a PDF
           .btn.exit-trip-set(ng-click='closeTripSet()')
             i.glyphicon.glyphicon-remove
           .trip-stats
@@ -93,6 +106,9 @@
         .itinerary(ng-if="showPage")
           .current-page
             p {{page.title}}
+            .btn.del-page(ng-click='delPage()')
+              | Delete Page
+              i.glyphicon.glyphicon-minus
           .btn.close-page(ng-click='closePage()')
             i.glyphicon.glyphicon-remove
           .btn.pdf-button(ng-click='makePdf()') Download as a PDF
@@ -118,15 +134,6 @@
     .col-xs-2.col-md-2
 
     .col-xs-12.col-xs-4
-      .map(ng-if='showMap')
-        input.location(type='text', ng-model='city.name', googleplace='googleplace')
-        button.btn.map-button(ng-click='mapLocation()') Map
-        button.btn.map-close(ng-click='closeMap()')
-          i.glyphicon.glyphicon-remove
-        .angular-google-map-container(ng-if='showMap', google-map, draggable='true', center='map.center', zoom='map.zoom', refresh='map.refresh', pan='1', options='options')
-          .marker(marker, coords='marker.coords', options='marker.options', events='marker.events', idkey='marker.id')
-      .wiki(ng-if='showWiki')
-        h5 Find a city or country. Powered by WikiSherpa API.
 
 
    .enter-dashboard(ng-if='mainDashboard')
@@ -195,28 +202,28 @@
               //-td {{plot.time | date:'shortTime'}}
               //-td ${{plot.cost}}
               //-td {{plot.priority}}
-              //-td: a(href='', ng-click='deletePlot(plot)') Delete
 
-    .col-xs-12.col-xs-4
-      .map(ng-if='showMap')
-        input.location(type='text', ng-model='city.name', googleplace='googleplace')
-        button.btn.map-button(ng-click='mapLocation()') Map
-        button.btn.map-close(ng-click='closeMap()')
-          i.glyphicon.glyphicon-remove
-        .angular-google-map-container(ng-if='showMap', google-map, draggable='true', center='map.center', zoom='map.zoom', refresh='map.refresh', pan='1', options='options')
-          .marker(marker, coords='marker.coords', options='marker.options', events='marker.events', idkey='marker.id')
-      .wiki(ng-if='showWiki')
-        h5 Find a city or country. Powered by WikiSherpa API.
-        input.destination(type='text', ng-model='destination.point', googleplace='googleplace')
-        button.btn.wiki-button(ng-click='setDestination()') Find
-        button.btn.map-destination-button(ng-click='mapDestination()') Map
-        button.btn.wiki-close(ng-click='closeWiki()')
-          i.glyphicon.glyphicon-remove
-      .wiki-info(ng-if='showAccordian')
-        img(ng-src='{{sherpa.images[0].secondUrl}}')
-        accordion(close-others='oneAtATime')
-          accordion-group(is-open='status.isFirstOpen', is-disabled='status.isFirstDisabled')
+    //-.col-xs-12.col-xs-4
+      //-.map(ng-if='showMap')
+        //-input.location(type='text', ng-model='city.name', googleplace='googleplace')
+        //-button.btn.map-button(ng-click='mapLocation()') Map
+        //-button.btn.map-close(ng-click='closeMap()')
+          //-i.glyphicon.glyphicon-remove
+        //-.angular-google-map-container(ng-if='showMap', google-map, draggable='true', center='map.center', zoom='map.zoom', refresh='map.refresh', pan='1', options='options')
+          //-.marker(marker, coords='marker.coords', options='marker.options', events='marker.events', idkey='marker.id')
+      //-.wiki(ng-if='showWiki')
+        //-h5 Find a city or country. Powered by WikiSherpa API.
+        //-input.destination(type='text', ng-model='destination.point', googleplace='googleplace')
+        //-button.btn.wiki-button(ng-click='setDestination()') Find
+        //-button.btn.map-destination-button(ng-click='mapDestination()') Map
+        //-button.btn.wiki-close(ng-click='closeWiki()')
+          //-i.glyphicon.glyphicon-remove
+      //-.wiki-info(ng-if='showAccordian')
+        //-img(ng-src='{{sherpa.images[0].secondUrl}}')
+        //-accordion(close-others='oneAtATime')
+          //-accordion-group(is-open='status.isFirstOpen', is-disabled='status.isFirstDisabled')
             accordion-heading
               | Information about {{destination.point}}
             a(href='{{sherpa.link}}' target='_blank') WikiVoyage link to {{destination.point}}
               //-iframe#iframe(ng-src='{{sherpa.link}}', width='100%', height='300', frameborder='0')
+

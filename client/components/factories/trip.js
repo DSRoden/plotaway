@@ -20,8 +20,12 @@
       return $http.get('/lasttrip');
     }
 
+    function remove(trip){
+      return $http.delete('/removetrip/' + trip._id);
+    }
 
-    return {all:all, create: create, set: set, getLast:getLast};
+
+    return {all:all, create: create, set: set, getLast:getLast, remove:remove};
   }]);
 })();
 

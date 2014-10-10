@@ -32,8 +32,23 @@
 @orange: #F28500;
 @darkOrange: #CC5500;
 
-///new/////
 
+/*.pages {*/
+  /*position: absolute;*/
+  /*margin-bottom: 3px;*/
+/*}*/
+
+//if no trips//
+.no-trips{
+  height: 400px;
+  width: 772px;
+  position: absolute;
+  top: 10px;
+  left: 200px;
+  background-color: @arsenicGray;
+}
+
+///new/////
 .controller {
   display: table;
   margin: 0 auto;
@@ -194,6 +209,7 @@
 
 //trip settings//
 
+
 .trip-page {
   position: relative;
 }
@@ -231,6 +247,18 @@
   padding: 10px;
   text-align: left;
   color: @arsenicGray;
+}
+
+.pdf-all {
+  position: absolute;
+  top: 10px;
+  left: 300px;
+  color: @arsenicGray;
+  cursor: pointer;
+}
+
+.pdf-all:hover {
+  color: white;
 }
 
 .exit-trip-set {
@@ -310,6 +338,10 @@
   left: 10px;
 }
 
+.del-trip:hover {
+  color: #ccc;
+}
+
 
 .trip-notes-table {
   position: absolute;
@@ -320,6 +352,7 @@
 }
 
 .trip-notes-table thead {
+  background-color: @goGreen;
   width: 500px;
   height: 40px;
 }
@@ -421,21 +454,29 @@
 }
 
 .del-page {
-  background-color: @goGreen;
-  width: 60px;
-  height: 40px;
   border-radius: 0;
-  text-align: center;
+  left: 0;
+  top: 0;
+  height: 40px;
+  background-color: @spaceGray;
+  color: #ccc;
 }
 
 .del-page:hover {
-  background-color: @darkMossGreen;
+  background-color: @arsenicGray;
+  color: #ccc;
 }
 
 // itinerary & table per page//
 .itinerary {
   position: relative;
   margin-top: 5px;
+}
+
+.del-page {
+  position: absolute;
+  left: 0px;
+  top: 0px;
 }
 
 .close-page {
@@ -500,6 +541,7 @@ tbody {
 }
 
 .current-page {
+  position: relative;
   margin-top: 10px;
   margin-left: 10px;
   height: 40px;
@@ -521,7 +563,9 @@ tbody {
 .photo {
   height: 200px;
   background-size: cover;
-}//////trip settings/////////////
+}
+
+//////trip settings/////////////
 /////////////////////////////////
 .trip-settings.ng-enter, .trip-settings.ng-leave {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
@@ -598,10 +642,6 @@ tbody {
 .map.ng-leave,
 .map.ng-enter.ng-enter-active {
   opacity:1;
-}
-
-.map {
-  margin-top: 8px;
 }
 
   //wiki search bar
@@ -714,24 +754,31 @@ tbody {
   }
 
   // class for angular-google-map
+.exploration {
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  height: 330px;
+  width: 772px;
+  color: #ccc;
+}
  .angular-google-map-container {
    /*display: block;*/
    /*margin: 0 auto;*/
-   margin-left: 3px;
-   margin-bottom: 0;
+   position: absolute;
+   top: 23px;
    height: 305px;
-   width: 346px;
+   width: 772px;
    opacity: 0.9;
  }
 
  //map input
   .location {
-    width: 233px;
-    margin-left: 6px;
+    position: absolute;
+    width: 520px;
     height: 40px;
-    margin-top: 3px;
-    margin-right: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     background-color: #ccc;
     opacity: 1;
     border: none;
@@ -745,13 +792,13 @@ tbody {
 
   //locate button
   .map-button {
+    position: absolute;
     background-color: @spaceGray;
-    width: 70px;
+    left: 520px;
+    width: 212px;
     height: 40px;
     border: none;
-    margin-top: 0px;
-    margin-bottom: 2px;
-    border-radius: 0px;
+    border-radius: 0;
     color: #ccc;
   }
 
@@ -773,12 +820,12 @@ tbody {
   }
 
   .map-close {
+    position: absolute;
     background-color: @spaceGray;
     width: 40px;
     height: 40px;
     border: none;
-    margin-top: 0px;
-    margin-bottom: 2px;
+    left: 732px;
     border-radius: 0px;
     color: #ccc;
   }

@@ -31,3 +31,9 @@ exports.last = function(req, res){
     res.send({trip:trip, pages:pages, plots: plots, notes: notes});
   });
 };
+
+exports.remove = function(req, res){
+  Trip.remove(req.params.id, function(err, trip){
+    res.send({err:err});
+  });
+};
