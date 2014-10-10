@@ -32,6 +32,7 @@
     $scope.showPagesBar = false;
     $scope.showPlot = false;
     $scope.goExplore = false;
+    $scope.showBrowse = false;
     $scope.privacy = {};
     //public private radio
 
@@ -51,6 +52,7 @@
       $scope.privacy.tripId = $scope.trip._id;
       Trip.privacy($scope.privacy).then(function(response){
         console.log(response);
+        $scope.getPublicItineraries();
       });
     };
 
@@ -65,8 +67,8 @@
       $scope.goExplore = true;
       $scope.mainDashboard = false;
       $scope.shows();
-      $scope.showMap = true;
       $scope.showWiki = true;
+      $scope.showBrowse = true;
     };
 
     //scrolling side bar
@@ -108,6 +110,7 @@
     $scope.explore - function(){
       $scope.mainController = true;
       $scope.showEverything = true;
+      $scope.showBrowse = true;
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -592,9 +595,18 @@ $scope.makePdf = function(){
     console.log($scope.trip.isPublic);
     console.log($scope.radioModel);
 
-    //if($scope.trips.length  < 1){
-      //$scope.mainDashboard = true;
-    //}
+    /////////////////////////////////////////////////
+    /////////////////ALL PUBLIC TRIPS///////////////
+   ///////////////////////////////////////////////
+  $scope.publicItineraries = [];
+  $scope.getPublicItineraries = function(){
+     Trip.getPublic().then(function(response){
+       $scope.publicItineraries = response.data.trips;
+       console.log($scope.publicItineraries);
+     });
+  };
+  $scope.getPublicItineraries();
+
 
   }]);
 })();

@@ -88,6 +88,10 @@ Trip.privacySetting = function(user, setting, cb){
   Trip.collection.update({_id: id}, {$set: {isPublic: value}}, cb);
 };
 
+Trip.getAllPublic = function(cb){
+  Trip.collection.find({isPublic: true}).toArray(cb);
+};
+
 
 module.exports = Trip;
 

@@ -29,7 +29,12 @@
       return $http.post('/privacysettings', setting);
     }
 
-    return {all:all, create: create, set: set, getLast:getLast, remove:remove, privacy:privacy};
+    function getPublic(){
+      console.log('inside factory for public');
+      return $http.get('/getpublic');
+    }
+
+    return {all:all, create: create, set: set, getLast:getLast, remove:remove, privacy:privacy, getPublic:getPublic};
   }]);
 })();
 

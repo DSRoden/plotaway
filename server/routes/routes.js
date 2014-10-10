@@ -45,6 +45,7 @@ module.exports = function(app, express){
   app.get('/lasttrip', trips.last);
   app.delete('/removetrip/:id', trips.remove);
   app.post('/privacysettings', trips.privacy);
+  app.get('/getpublic', trips.getPublic);
   app.post('/newpage', pages.create);
   app.delete('/removepage/:id', pages.remove);
   app.post('/plots', plots.create);

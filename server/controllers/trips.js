@@ -43,3 +43,10 @@ exports.privacy = function(req, res){
     res.send({err:err});
   });
 };
+
+exports.getPublic = function(req, res){
+  Trip.getAllPublic(function(err, trips){
+    console.log('public trips >>>>>>>>>>>>>>', trips);
+    res.send({trips:trips});
+  });
+};
