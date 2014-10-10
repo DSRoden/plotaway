@@ -45,8 +45,19 @@ exports.privacy = function(req, res){
 };
 
 exports.getPublic = function(req, res){
-  Trip.getAllPublic(function(err, trips){
-    console.log('public trips >>>>>>>>>>>>>>', trips);
-    res.send({trips:trips});
+  Trip.getAllPublic(function(err, itineraries){
+    console.log('public trips >>>>>>>>>>>>>>', itineraries);
+    res.send({itineraries:itineraries});
   });
 };
+
+exports.getItineraryPages = function(req, res){
+  Trip.getItinPages(req.body, function(itinerary, pages){
+    console.log(pages);
+    console.log(itinerary);
+    res.send({itinerary:itinerary, pages:pages});
+  });
+};
+
+
+

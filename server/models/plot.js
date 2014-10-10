@@ -76,5 +76,13 @@ Plot.remove = function(id, cb){
   id = Mongo.ObjectID(id);
   Plot.collection.remove({_id:id}, cb);
 };
+
+Plot.getItinPlots = function(o, cb){
+  console.log(o.pageId);
+  var id = Mongo.ObjectID(o.pageId);
+  console.log(id);
+  Plot.collection.find({pageId:id}).sort({date: 1, time: 1}).toArray(cb);
+};
+
 module.exports = Plot;
 

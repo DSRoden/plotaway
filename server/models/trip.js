@@ -92,6 +92,14 @@ Trip.getAllPublic = function(cb){
   Trip.collection.find({isPublic: true}).toArray(cb);
 };
 
+Trip.getItinPages = function(o, cb){
+  var id = Mongo.ObjectID(o.itineraryId);
+  Trip.collection.findOne({_id : id}, function(err, itinerary){
+    require('./page').collection.find({tripId: id}).toArray(function(err, pages){
+      cb(itinerary, pages);
+    });
+  });
+};
 
 module.exports = Trip;
 

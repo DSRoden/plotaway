@@ -23,6 +23,10 @@ module.exports = function(app, express){
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(session({store:new RedisStore(), secret:'my super secret key', resave:true, saveUninitialized:true, cookie:{maxAge:null}}));
+  app.get('/publicitineraries', trips.getPublic);
+  //app.get('/user', users.user);
+  app.post('/itinerarypages', trips.getItineraryPages);
+  app.post('/itineraryplots', plots.getItineraryPlots);
 
   app.use(security.authenticate);
   app.use(debug.info);
@@ -45,13 +49,15 @@ module.exports = function(app, express){
   app.get('/lasttrip', trips.last);
   app.delete('/removetrip/:id', trips.remove);
   app.post('/privacysettings', trips.privacy);
-  app.get('/getpublic', trips.getPublic);
+
   app.post('/newpage', pages.create);
   app.delete('/removepage/:id', pages.remove);
+
   app.post('/plots', plots.create);
   app.get('/plots', plots.all);
   //app.get('/tripplots', plots.allPlots);
   app.delete('/removeplot/:id', plots.remove);
+
   app.post('/notes',  notes.create);
   app.post('/notes/:id',  notes.all);
 

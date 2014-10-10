@@ -5,8 +5,8 @@
   'use strict';
 
   angular.module('plotaway')
-  .controller('TripsCtrl', ['$scope', '$sce', 'Trip', 'Page', 'Plot', 'Note', 'Wiki', '$modal', '$location', '$rootScope', '$interval', '$route', '$routeParams', '$log',
-    function($scope, $sce, Trip, Page, Plot, Note, Wiki, $modal, $location, $rootScope, $interval, $route, $routeParams, $log){
+  .controller('TripsCtrl', ['$scope', '$sce', 'Trip', 'Page', 'Plot', 'Note', 'Wiki', 'Itin', '$modal', '$location', '$rootScope', '$interval', '$route', '$routeParams', '$log',
+    function($scope, $sce, Trip, Page, Plot, Note, Wiki, Itin, $modal, $location, $rootScope, $interval, $route, $routeParams, $log){
 
     $scope.trip        = {};
     $scope.trips       = [];
@@ -34,10 +34,13 @@
     $scope.goExplore = false;
     $scope.showBrowse = false;
     $scope.privacy = {};
+
+    //explore
+    $scope.explore = function(){
+        $location.path('/itineraries');
+    };
+
     //public private radio
-
-
-
     $scope.makePrivate = function(){
       $scope.privacy.setting = 'private';
       $scope.changePrivacy();
@@ -62,14 +65,6 @@
     };
 
 
-    //explore
-    $scope.explore = function(){
-      $scope.goExplore = true;
-      $scope.mainDashboard = false;
-      $scope.shows();
-      $scope.showWiki = true;
-      $scope.showBrowse = true;
-    };
 
     //scrolling side bar
     $(function(){
@@ -598,15 +593,6 @@ $scope.makePdf = function(){
     /////////////////////////////////////////////////
     /////////////////ALL PUBLIC TRIPS///////////////
    ///////////////////////////////////////////////
-  $scope.publicItineraries = [];
-  $scope.getPublicItineraries = function(){
-     Trip.getPublic().then(function(response){
-       $scope.publicItineraries = response.data.trips;
-       console.log($scope.publicItineraries);
-     });
-  };
-  $scope.getPublicItineraries();
-
 
   }]);
 })();

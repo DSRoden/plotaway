@@ -21,6 +21,7 @@ exports.remove = function(req, res){
   });
 };
 
+
 //exports.index = function(req, res){
   //Trip.all(req.user, function(err, trips){
     //res.send({trips:trips});

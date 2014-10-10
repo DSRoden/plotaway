@@ -13,6 +13,8 @@
     .when('/stories',   {templateUrl:'/views/stories/stories.html',     controller:'StoriesCtrl'})
     .when('/stories/:boardId',   {templateUrl:'/views/stories/stories.html',     controller:'StoriesCtrl'})
     .when('/trips',   {templateUrl:'/views/trips/trips.html',     controller:'TripsCtrl'})
+    .when('/itineraries',   {templateUrl:'/views/publicItins/itins.html',     controller:'PublicItinCtrl'})
+    .when('/itinerary/:id',   {templateUrl:'/views/publicItins/individual-itin.html',     controller:'ItineraryCtrl'})
     .otherwise({redirectTo:'/'});
 
     $httpProvider.interceptors.push('HttpInterceptor');

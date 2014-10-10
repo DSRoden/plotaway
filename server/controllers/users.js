@@ -35,3 +35,8 @@ exports.logout = function(req, res){
   });
 };
 
+exports.user = function(req, res){
+  res.send(req.user);
+  res.status(200).end();
+};
+

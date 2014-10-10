@@ -1,0 +1,29 @@
+.public-itineraries-page
+  .row
+    .col-md-2
+      .public-intro
+        h4{{title}}
+    .col-md-8
+      .browse-page(ng-if='showBrowse')
+        .public-itins
+          h5 Public Itineraries
+          .btn.exit-public(ng-click='closePublic()')
+            i.glyphicon.glyphicon-remove
+        table.table.table-margin.table-height.browse-table(fixed-header='fixed-header')
+          thead
+            tr
+              th User
+              th Comments
+              th Itinerary Title
+              th Description
+              th Region
+              th Check Out
+          tbody
+            tr(ng-repeat="itinerary in publicItineraries")
+              td Name
+              td #comments
+              td {{itinerary.title}}
+              td {{itinerary.description}}
+              td {{itinerary.region}}
+              td(ng-click="displayItin(itinerary)") See Itinerary
+

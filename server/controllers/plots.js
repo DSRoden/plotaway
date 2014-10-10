@@ -32,3 +32,10 @@ exports.remove = function(req, res){
     res.send({err:err});
   });
 };
+
+exports.getItineraryPlots = function(req, res){
+  Plot.getItinPlots(req.body, function(err, plots){
+    console.log(plots);
+    res.send({plots:plots});
+  });
+};
