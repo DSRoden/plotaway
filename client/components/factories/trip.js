@@ -24,8 +24,12 @@
       return $http.delete('/removetrip/' + trip._id);
     }
 
+    function privacy(setting){
+      console.log(setting);
+      return $http.post('/privacysettings', setting);
+    }
 
-    return {all:all, create: create, set: set, getLast:getLast, remove:remove};
+    return {all:all, create: create, set: set, getLast:getLast, remove:remove, privacy:privacy};
   }]);
 })();
 

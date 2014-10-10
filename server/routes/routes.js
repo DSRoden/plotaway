@@ -44,6 +44,7 @@ module.exports = function(app, express){
   app.post('/settrip', trips.set);
   app.get('/lasttrip', trips.last);
   app.delete('/removetrip/:id', trips.remove);
+  app.post('/privacysettings', trips.privacy);
   app.post('/newpage', pages.create);
   app.delete('/removepage/:id', pages.remove);
   app.post('/plots', plots.create);

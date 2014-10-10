@@ -10,6 +10,8 @@ function Trip(o){
   this.start =  (o.dates.start) ? new Date(o.dates.start) : 'No Start Date';
   this.end = (o.dates.end) ? new Date(o.dates.end) : 'No End Date';
   this.budget = (o.budget === null) ? 0 : parseInt(o.budget);
+  this.region = o.region;
+  this.isPublic = false;
 }
 
 Object.defineProperty(Trip, 'collection', {
@@ -78,6 +80,14 @@ Trip.remove = function(id, cb){
     });
   });
 };
+
+Trip.privacySetting = function(user, setting, cb){
+  var value = (setting.setting === 'public') ? true : false,
+      id = Mongo.ObjectID(setting.tripId);
+      console.log('this is the value coming out of chainging the public settings>>>>>>>>>', value);
+  Trip.collection.update({_id: id}, {$set: {isPublic: value}}, cb);
+};
+
 
 module.exports = Trip;
 

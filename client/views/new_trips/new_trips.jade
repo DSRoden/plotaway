@@ -8,6 +8,18 @@
         br
         label Description:
         input.form-control(name='description', type='text', ng-model='form.description')
+        br
+        label Region (required):
+        select.form-control(name='region', type='text', ng-model='form.region', required)
+          option(value='Asia') Asia
+          option(value='Africa') Africa
+          option(value='Antartica') Antartica
+          option(value='Australia') Australia
+          option(value='Europe') Europe
+          option(value='Middle East') Middle East
+          option(value='North America') North America
+          option(value='South America') South America
+          br
       .modal-body.trip-body
         .form-group(ng-class='{error: _form.title.$error && _form.submitted}')
           .col-lg-9.col-md-9

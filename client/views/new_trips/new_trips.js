@@ -10,9 +10,9 @@
         title: $scope.newTrip.title,
         description: $scope.newTrip.description,
         dates: $scope.date,
-        budget: $scope.newTrip.budget
+        budget: $scope.newTrip.budget,
+        region: $scope.newTrip.region
       };
-
 
       $scope.dismiss = function(){
         $modalInstance.dismiss();

@@ -261,6 +261,39 @@
   color: white;
 }
 
+.public-private {
+  position: absolute;
+  left: 85px;
+  top: 355px;
+  height: 35px;
+}
+
+.private {
+  border-radius: 0;
+  background-color: @goGreen;
+  color: #ccc;
+}
+
+.private:hover {
+  color: @arsenicGray;
+}
+
+.private:focus {
+  background-color: @darkMossGreen;
+  color: #ccc;
+}
+
+.public{
+  border-radius: 0;
+  background-color: @goGreen;
+  color: #ccc;
+}
+
+.public:hover {
+  color: @arsenicGray;
+}
+
+
 .exit-trip-set {
   position: absolute;
   margin-top: 0;
@@ -329,8 +362,8 @@
 
 .del-trip {
   position: absolute;
-  width: 100px;
-  height: 30px;
+  width: 70px;
+  height: 35px;
   border-radius: 0;
   background-color: @spaceGray;
   color: #ccc;
@@ -352,9 +385,10 @@
 }
 
 .trip-notes-table thead {
-  background-color: @goGreen;
+  background-color: white;
   width: 500px;
-  height: 40px;
+  height: 35px;
+  color: #ccc;
 }
 .trip-notes-table tbody {
   width: 500px;
@@ -756,10 +790,9 @@ tbody {
   // class for angular-google-map
 .exploration {
   position: relative;
-  margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 5px;
-  height: 330px;
+  height: 345px;
   width: 772px;
   color: #ccc;
 }

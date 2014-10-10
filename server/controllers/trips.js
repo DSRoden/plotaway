@@ -37,3 +37,9 @@ exports.remove = function(req, res){
     res.send({err:err});
   });
 };
+
+exports.privacy = function(req, res){
+  Trip.privacySetting(req.user, req.body, function(err, trip){
+    res.send({err:err});
+  });
+};

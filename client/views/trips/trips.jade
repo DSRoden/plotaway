@@ -71,8 +71,11 @@
         .trip-settings(ng-if="showTripSet")
           .trip-title
             h5 {{trip.title}}
-          .btn-group(dropdown='dropdown', is-open='status.isopen')
           .pdf-all(ng-click='tripPdf()') Download as a PDF
+          .public-private
+            .btn-group
+              label.btn.private(ng-model='radioModel', btn-radio='\'Left\'', ng-click='makePrivate()') Private
+              label.btn.public(ng-model='radioModel', btn-radio='\'Right\'', ng-click='makePublic()') Public
           .btn.exit-trip-set(ng-click='closeTripSet()')
             i.glyphicon.glyphicon-remove
           .trip-stats
@@ -87,7 +90,7 @@
             p End Date: {{trip.end | date:'dd MMM yyyy'}}
           .delete-trip
             .btn.del-trip(ng-click='delTrip()')
-              | Delete Trip
+              | Delete
               i.glyphicon.glyphicon-minus
           .trip-notes
             input(name='note', type='text', ng-model='note.info')
@@ -170,6 +173,10 @@
               //-li
                 //-a.delete-page-pointer(ng-click='delPage()') Delete &nbsp
                   i.glyphicon.glyphicon-remove &nbsp
+            .public-private
+              .btn-group
+                label.btn.btn-primary(ng-model='radioModel', btn-radio='\'Left\'', ng-click='makePrivate()') Private
+                label.btn.btn-primary(ng-model='radioModel', btn-radio='\'Right\'', ng-click='makePublic()') Public
 
   // wiki, map, and iframes
   .row(ng-show="showDescription")

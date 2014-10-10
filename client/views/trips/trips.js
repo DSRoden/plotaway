@@ -32,6 +32,27 @@
     $scope.showPagesBar = false;
     $scope.showPlot = false;
     $scope.goExplore = false;
+    $scope.privacy = {};
+    //public private radio
+
+
+
+    $scope.makePrivate = function(){
+      $scope.privacy.setting = 'private';
+      $scope.changePrivacy();
+    };
+
+    $scope.makePublic = function(){
+      $scope.privacy.setting = 'public';
+      $scope.changePrivacy();
+    };
+
+    $scope.changePrivacy = function(){
+      $scope.privacy.tripId = $scope.trip._id;
+      Trip.privacy($scope.privacy).then(function(response){
+        console.log(response);
+      });
+    };
 
     $scope.shows = function(){
       $scope.showMain = true;
@@ -433,6 +454,7 @@ $scope.makePdf = function(){
     $scope.getRecent = function(){
     Trip.getLast().then(function(response){
       $scope.trip = response.data.trip;
+      $scope.radioModel = ($scope.trip.isPublic) ? 'Right' : 'Left';
       $scope.notes  = response.data.notes;
       $scope.allTripPlots = response.data.plots;
         Page.all($scope.trip).then(function(response){
@@ -567,6 +589,8 @@ $scope.makePdf = function(){
       });
     };
 
+    console.log($scope.trip.isPublic);
+    console.log($scope.radioModel);
 
     //if($scope.trips.length  < 1){
       //$scope.mainDashboard = true;
