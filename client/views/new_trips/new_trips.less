@@ -2,33 +2,34 @@
 @spaceGray: #414A4C;
 @arsenicGray: #3B444B;
 @timberwolfGray: #DBD7D2;
+@goldenYellow : #FFDF00;
 @seaBlue : #006994;
 @electricBlue : #035096;
 @goGreen : #00AB66;
+@napierGreen : #2A8000;
 
 .modal-content {
   width: 570px;
 }
 
 .trip-header {
-  border-radius: 0;
   height:  300px;
   width: 570px;
-  background-color: @goGreen;
+}
+
+.trip-header h3 {
+  color: @goGreen;
 }
 
 .trip-body {
-  border-radius: 0;
   height: 150px;
   width: 570px;
-  background-color: @timberwolfGray;
 }
 
 .trip-footer {
   border-radius: 0;
   height: 80px;
   width: 570px;
-  background-color: @goGreen;
 }
 
 .budget {
@@ -45,19 +46,23 @@
   width: 150px;
 }
 
-.submit-btn {
-  border-radius: 0;
+.submit-btn-trips {
+  border-radius: 5px;
   width: 80px;
   height: 50px;
-  background-color: @seaBlue;
-  color: #ccc;
+  background-color: @goGreen;
+  color: @spaceGray;
 }
 
-.submit-btn:hover {
+.submit-btn-trips:hover {
   color: #ccc;
-  background-color: @electricBlue;
+  background-color: @napierGreen;
 }
 
 .cancel {
   border-radius: 0;
+}
+
+.trip-body label {
+  color: @spaceGray;
 }

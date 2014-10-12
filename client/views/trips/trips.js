@@ -149,6 +149,7 @@
      };
   };
 
+     $scope.showWeather = true,
     //call the function to make the map
     updateMap();
 
@@ -181,9 +182,17 @@
       $scope.showMap = false;
     };
 
+    $scope.activateMap = function(){
+      $scope.showMap = true;
+    };
 ///////////////////////////////////////////////////////////////////
 /////////END OF MAP CODE/////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+
+    $scope.activateWiki = function(){
+      $scope.showWiki = true;
+    };
+
 
     //set destination for wiki, start with cities
     $scope.setDestination = function(){
@@ -386,12 +395,12 @@ $scope.makePdf = function(){
      //show trip settings
     $scope.tripSettings = function(){
       //$scope.showTable = false;
-      $scope.showTripSet = true;
+      $scope.tripSetOpen = true;
     };
 
      //close trip info
     $scope.closeTripSet = function(){
-      $scope.showTripSet = false;
+      $scope.tripSetOpen = false;
     };
 
     //close page
@@ -493,14 +502,20 @@ $scope.makePdf = function(){
 
 
     //get all notes
+      Note.all($scope.trip).then(function(response){
+        $scope.notes = response.data.notes;
+      });
 
-    Note.all($scope.trip).then(function(response){
-      $scope.notes = response.data.notes;
-    });
 
     //set and display trip one user selects from 'My Trips'
     $scope.setTrip = function(trip){
+      $scope.notes = [];
       $scope.trip = trip;
+      Note.all($scope.trip).then(function(response){
+        $scope.notes = response.data.notes;
+        console.log($scope.notes);
+      });
+
       Trip.set($scope.trip._id).then(function(response){
         $scope.trip = response.data.trip;
         console.log($scope.trip);
@@ -511,7 +526,9 @@ $scope.makePdf = function(){
           $scope.showPage = false;
           $scope.page = {};
           $scope.showTripSet = true;
+          $scope.tripSetOpen = true;
           $scope.showPagesBar = true;
+          $scope.showPlot = false;
         });
         //$route.reload('/trips');
       });
@@ -528,6 +545,7 @@ $scope.makePdf = function(){
       } else {
         $scope.showEverything = true;
         $scope.showTripSet = true;
+        $scope.tripSetOpen = true;
         $scope.showMain = true;
         $scope.sideBar = true;
         $scope.showPagesBar = true;

@@ -39,8 +39,29 @@
 
 //intro
 
-.public-intro {
-  margin-left: 90px;
+.back-to-main {
+  background-color: @goGreen;
+  color: #ccc;
+  border-radius: 5px;
+}
+
+.back-to-main:hover {
+  background-color: @arsenicGray;
+  color: #ccc;
+}
+
+.public-itineraries-page {
+  position: relative;
+}
+
+#browse-menu {
+  width: 200px;
+  position: fixed;
+}
+
+.itineraries-body {
+  position: absolute;
+  margin-top: 0px;
 }
 
 .browse-table {
@@ -55,6 +76,7 @@
   color: @arsenicGray;
   width: 154px;
   border: 1px solid @arsenicGray;
+  left: 0;
 }
 
 .browse-page th {
@@ -67,16 +89,15 @@
   margin-left: 10px;
   height: 40px;
   width: 772px;
-  color: #ccc;
   height: 40px;
-  color: @arsenicGray;
-  background-color: #ccc;
+  background-color: @eggplantLight;
 }
 
 .public-itins h5 {
   padding: 10px;
   text-align: left;
-  color: @arsenicGray;
+  background-color: @eggplantLight;
+  color: white;
 }
 
 .exit-public {
@@ -88,5 +109,9 @@
   top: 0;
   left: 732px;
   color: #ccc;
+}
+
+.see-itinerary {
+  cursor: pointer;
 }
 

@@ -29,7 +29,9 @@ Note.create = function(user, note, cb){
 };
 
 Note.all = function(user, tripId, cb){
+  console.log('trip id before mongoid>>>>>>>>', tripId);
   var id = Mongo.ObjectID(tripId);
+  console.log('trip id after mongoid>>>>>>>>>', id);
     Note.collection.find({tripId: id}).toArray(cb);
 };
 

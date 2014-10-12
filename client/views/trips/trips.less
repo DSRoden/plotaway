@@ -33,10 +33,108 @@
 @darkOrange: #CC5500;
 
 
-/*.pages {*/
-  /*position: absolute;*/
-  /*margin-bottom: 3px;*/
-/*}*/
+//main buttons
+
+.current-trip {
+  background-color: @goGreen;
+  color: @timberwolfGray;
+  border-radius: 5px;
+}
+
+.current-trip:hover {
+  background-color: @napierGreen;
+}
+
+.trip-pages {
+  background-color: @seaBlue;
+  color: @timberwolfGray;
+  border-radius: 5px;
+}
+
+.trip-pages:hover {
+  background-color: @electricBlue;
+}
+
+
+.new-page {
+  background-color: #007BA7;
+  color: @timberwolfGray;
+  border-radius: 5px;
+}
+
+.new-page:hover {
+  background-color: #0067A5;
+}
+
+.new-plot-btn {
+  background-color: #ca0002;
+  color: @timberwolfGray;
+  border-radius: 5px;
+}
+
+.new-plot-btn:hover {
+  background-color: #AF002A;
+}
+
+.explore-btn {
+  background-color: @eggplantLight;
+  color: #ccc;
+  border-radius: 5px;
+}
+
+.explore-btn:hover {
+  background-color: @eggplant;
+}
+
+.my-trips {
+  background-color: @peachyKeen;
+  color: #ccc;
+  border-radius: 5px;
+}
+
+.my-trips:hover {
+  background-color: @flame;
+}
+
+.new-trip {
+  background-color: #FFA700;
+  color: #ccc;
+  border-radius: 5px;
+}
+
+.new-trip:hover {
+  background-color: #DA9100;
+}
+
+.map-btn {
+  background-color: @spaceGray;
+  color: #ccc;
+  border-radius: 5px;
+}
+
+.map-btn:hover {
+  background-color: @arsenicGray;
+  color: #ccc;
+}
+
+
+
+
+//plot description
+
+.descriptiontd {
+  cursor: pointer;
+}
+.plot-description-dashboard {
+  margin-left: 10px;
+  background-color: white;
+}
+
+.plot-description-dashboard p {
+  padding: 3px;
+  color: @arsenicGray;
+  border: 1px solid #ccc;
+}
 
 //if no trips//
 .no-trips{
@@ -232,7 +330,7 @@
 .main-body {
   position: absolute;
   margin-top: 0px;
-  margin-left: 180px;
+  margin-left: 210px;
 }
 
 .trip-settings {
@@ -250,13 +348,14 @@
   width: 732px;
   color: #ccc;
   height: 40px;
-  background-color: #ccc;
+  background-color: @goGreen;
 }
 
 .trip-title h5 {
   padding: 10px;
   text-align: left;
-  color: @arsenicGray;
+  color: white;
+  background-color: @goGreen;
 }
 
 .pdf-all {
@@ -324,7 +423,7 @@
   position: absolute;
   top: 40px;
   left: 10px;
-  background-color: #ccc;
+  background-color: @goGreen;
   width: 200px;
   height: 120px;
 }
@@ -445,6 +544,13 @@
   border-radius: 0;
   width: 90px;
   height: 60px;
+  background-color: @goGreen;
+  color: #ccc;
+  border-radius: 5px;
+}
+
+.note-btn:hover {
+  background-color: @arsenicGray;
 }
 
 .trip-notes-table table thead  th {
@@ -663,6 +769,7 @@ tbody {
 
 .wiki {
   margin-top: 10px;
+  margin-left: 112px;
 }
 
 .wiki-info{
@@ -703,7 +810,7 @@ tbody {
   }
 
   .destination {
-    width: 200px;
+    width: 480px;
     height: 40px;
     background-color: #ccc;
     margin-top: 3px;
@@ -722,7 +829,7 @@ tbody {
 
   .wiki-button {
     background-color: @spaceGray;
-    width: 55px;
+    width: 115px;
     height: 40px;
     border: none;
     margin-top: 0px;
@@ -749,7 +856,7 @@ tbody {
 
   .map-destination-button {
     background-color: @spaceGray;
-    width: 50px;
+    width: 116px;
     height: 40px;
     border: none;
     margin-top: 0px;
@@ -800,7 +907,7 @@ tbody {
   // class for angular-google-map
 .exploration {
   position: relative;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-bottom: 5px;
   height: 345px;
   width: 772px;
@@ -889,6 +996,42 @@ tbody {
     border: @arsenicGray;
     color: #ccc;
   }
+
+  //pages-dashboard
+
+  .dropdown-menu {
+    min-width: 80px;
+  }
+
+  .pages-dashboard-menu {
+    width: 150px;
+  }
+
+.page-options-dashboard {
+  width: 148px;
+  color: @arsenicGray;
+  border-radius: 0;
+}
+
+.page-options-dashboard:hover {
+  background-color: @timberwolfGray;
+}
+
+  .trip-menu {
+    width: 150px;
+  }
+
+.trip-items {
+  width: 148px;
+  color: @arsenicGray;
+  border-radius: 0;
+}
+
+.trip-items:hover {
+  background-color: @timberwolfGray;
+}
+
+
 
 /*
 
@@ -1128,15 +1271,16 @@ tbody {
     color: #ccc;
   }
 
+
   //page actions menu
 
-  .pages-actions-menu {
-      border-radius: 0px;
-      width: 205px;
-      background-color: #EFEEE8;
-      color: @spanishGray;
-    }
-}
+  /*.pages-actions-menu {*/
+      /*border-radius: 0px;*/
+      /*width: 205px;*/
+      /*background-color: #EFEEE8;*/
+      /*color: @spanishGray;*/
+    /*}*/
+/*}*/
 
 /*///////////////////////////////*/
 /*///// for phone screen////////*/

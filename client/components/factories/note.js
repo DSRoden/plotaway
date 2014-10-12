@@ -10,7 +10,8 @@
     }
 
     function all(trip){
-      return $http.get('/notes/' + trip._id);
+      console.log(trip._id);
+      return $http.post('/notes/' + trip._id);
     }
 
     function remove(note){
