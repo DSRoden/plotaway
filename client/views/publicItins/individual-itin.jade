@@ -40,7 +40,18 @@
                 td {{plot.time | date:'shortTime'}}
                 td ${{plot.cost}}
                 td {{plot.priority}}
-      //-.col-md-8
-        //-.comment-area
-          //-label Leave a comment
-          //-input.textarea.comment-box(name='comment', type='text', ng-model='comment.content')
+                br
+          table.table.table-margin.table-height.public-comment-table(fixed-header='fixed-header')
+            thead
+              tr
+                th  User
+                th.thcomment Comment
+            tbody
+              tr(ng-repeat='comment in comments track by $index')
+                td Commenter
+                td.tdcomment {{comment.content}}
+                br
+      .comment-area
+        label Leave a comment
+        input.textarea.comment-box(name='comment', type='text', ng-model='comment.content')
+        .btn.submit-comment-btn(ng-click='addComment()') Submit Comment

@@ -12,6 +12,7 @@ function Trip(o){
   this.budget = (o.budget === null) ? 0 : parseInt(o.budget);
   this.region = o.region;
   this.isPublic = false;
+  this.comments = 0;
 }
 
 Object.defineProperty(Trip, 'collection', {

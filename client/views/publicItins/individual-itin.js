@@ -4,7 +4,7 @@
   'use strict';
 
   angular.module('plotaway')
-  .controller('ItineraryCtrl', ['$scope', '$routeParams', 'Plot', 'Itin', 'User','$localForage', '$location', function($scope, $routeParams, Plot, Itin, User, $localForage, $location){
+  .controller('ItineraryCtrl', ['$scope', '$routeParams', 'Plot', 'Comment', 'Itin', 'User','$localForage', '$location', function($scope, $routeParams, Plot, Comment, Itin, User, $localForage, $location){
     $scope.plot = {};
     $scope.plots = [];
     $scope.pages = [];
@@ -162,6 +162,23 @@ $scope.makePdf = function(){
       //$scope.showTripSet = false;
     });
   };
+
+   Comment.all(id).then(function(response){
+    $scope.comments = response.data.comments;
+   });
+
+    $scope.comments = [];
+    $scope.comment = {};
+    $scope.comment.tripId = id;
+    $scope.addComment = function(){
+    Comment.create($scope.comment).then(function(response){
+      console.log($scope.comment);
+      Comment.all(id).then(function(response2){
+        $scope.comments = response2.data.comments;
+      });
+    });
+  };
+
 
 
   }]);

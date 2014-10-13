@@ -13,6 +13,7 @@ var morgan         = require('morgan'),
     trips          = require('../controllers/trips'),
     plots         = require('../controllers/plots'),
     sherpas          = require('../controllers/sherpas'),
+    comments          = require('../controllers/comments'),
     notes          = require('../controllers/notes'),
     users          = require('../controllers/users');
 
@@ -61,6 +62,8 @@ module.exports = function(app, express){
   app.post('/notes',  notes.create);
   app.post('/notes/:id',  notes.all);
 
+  app.post('/comment',  comments.create);
+  app.post('/comments',  comments.all);
   app.post('/destination', sherpas.findDestination);
 
   console.log('Express: Routes Loaded');
