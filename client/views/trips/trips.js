@@ -426,7 +426,6 @@ $scope.makePdf = function(){
        $scope.showPlot = true;
        $scope.sum += page.cost;
        $scope.lastPageAdded = page;
-       toastr.success('You can start adding plots!');
        $scope.pages.push($scope.lastPageAdded);
      });
     };

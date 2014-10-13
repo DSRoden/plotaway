@@ -35,7 +35,7 @@
     };
 
     function registerSuccess(response){
-      toastr.success('Welcome back!');
+      toastr.success('Hey there!');
       $location.path('/trips');
     }
 

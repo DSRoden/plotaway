@@ -21,7 +21,7 @@
         Page.create($scope.form).then(function(response){
           $scope.page = response.data.page;
           $modalInstance.close($scope.page);
-          toastr.success('Added a page!');
+          toastr.success('Added a page! Open it and plot away!');
         });
       };
     }
