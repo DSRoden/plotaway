@@ -251,7 +251,7 @@
 ////////////////////////////////////////////////
 
    $scope.newPlot = function(){
-   if(!$scope.page.title){return}
+   if(!$scope.page.title){return;}
     var newPlotModal = $modal.open({
       templateUrl: '/views/new_plots/new_plots.html',
       controller: 'NewPlotsCtrl',
