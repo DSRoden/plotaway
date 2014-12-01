@@ -35,6 +35,7 @@
     $scope.showBrowse = false;
     $scope.privacy = {};
 
+
     //explore
     $scope.explore = function(){
         $location.path('/itineraries');
@@ -250,6 +251,7 @@
 ////////////////////////////////////////////////
 
    $scope.newPlot = function(){
+   if(!$scope.page.title){return}
     var newPlotModal = $modal.open({
       templateUrl: '/views/new_plots/new_plots.html',
       controller: 'NewPlotsCtrl',
@@ -423,7 +425,6 @@ $scope.makePdf = function(){
      // set the results of the modal form
      // to lastTripAdded and push it into trips array
      newPageModal.result.then(function(page){
-       $scope.showPlot = true;
        $scope.sum += page.cost;
        $scope.lastPageAdded = page;
        $scope.pages.push($scope.lastPageAdded);
@@ -581,10 +582,16 @@ $scope.makePdf = function(){
 
     // delete page
     $scope.delPage = function(){
+      $scope.page = {};
+      $scope.showPlot = false;
       $scope.showPage=false;
       Page.remove($scope.page).then(function(response){
         var index = $scope.pages.indexOf($scope.page);
         $scope.pages.splice(index,1);
+        if($scope.pages.length === 0){
+          console.log('no more pages left');
+          $scope.showPlot = false;
+        }
       });
     };
 

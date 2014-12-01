@@ -32,7 +32,7 @@ Comment.create = function(user, o, cb){
       console.log('comment inserted and comment number of trip updated>>>>>>>>>>', updated);
       require('./user').collection.findOne({_id:o.ownerId}, function(err, user){
       var message = 'A comment has been made on your itinerary at http://daniel-vm.com:4444/#/itinerary/' + trip._id + '. The message reads: ' + o.content;
-      sendEmail('daniel.s.roden@gmail.com', user.email, message, function(err, resE){
+      sendEmail('postmaster@sandbox065d6ea564c84092b66f8ce88c474b4b.mailgun.org', user.email, message, function(err, resE){
         console.log('email error >>>>>>>>>>>>>>>>>', err);
         console.log('email res >>>>>>>>>>>>>>>>>>', resE);
       });
